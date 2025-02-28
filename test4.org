@@ -1,0 +1,90 @@
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+#+REVEAL_VERSION: 4
+#+REVEAL_ADD_PLUGIN: audioslideshow RevealAudioSlideshow https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/audio-slideshow/plugin.js
+#+REVEAL_ADD_PLUGIN: audiorecorder RevealAudioRecorder https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/audio-slideshow/recorder.js
+#+REVEAL_ADD_PLUGIN: chalkboard RevealChalkboard https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css
+#+REVEAL_ADD_PLUGIN: loadcontent RevealLoadContent https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/loadcontent/plugin.js
+#+REVEAL_HEAD_PREAMBLE: <style type="text/css">.reveal > .overlay {backdrop-filter: unset!important; }</style>
+#+REVEAL_EXPORT_NOTES_TO_PDF:  hv
+#+REVEAL_PREAMBLE:
+
+#+OPTIONS: showNotes: true,  toc:nil reveal_width:1400 reveal_height:1000 reveal_embed_local_resources:nil reveal_mousewheel:true reveal_with_tts:true reveal_with_tts:CLB
+#+REVEAL_EXTRA_SCRIPTS: ("reveal.js/lib/js/head.min.js" "%slib/js/head.min.js" "<script>console.log(\"Empty script.\")</script>")
+#+REVEAL_HEAD_PREAMBLE: <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.6.2/RecordRTC.js"></script>
+
+#+REVEAL_PREAMBLE:
+#+REVEAL_THEME: moon
+
+# Note that the default background does not apply to generated slides.
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND: ./nightlight.jpeg
+
+# Separate keywords exist for title slide and toc slide.  Specify toc:
+#+REVEAL_TOC_SLIDE_BACKGROUND: ./nightlight2.jpeg
+
+
+
+
+
+#+title: Test4
+
+* title 1
+#+begin_export html
+<section>
+
+    <button class="fullscreen-toggle">Toggle Fullscreen</button>
+    <iframe
+      src="https://trinket.io/embed/python3/5c78a83738"
+      width="100%"
+      height="356"
+      frameborder="0"
+      marginwidth="0"
+      marginheight="0"
+      allowfullscreen
+      class="fullscreen-iframe"
+    ></iframe>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add event listeners to all toggle buttons
+      const toggleButtons = document.querySelectorAll('.fullscreen-toggle');
+      toggleButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Find the iframe within the same section as the button
+          const iframe = button.closest('section').querySelector('.fullscreen-iframe');
+
+          if (iframe) {
+            if (iframe.requestFullscreen) {
+              iframe.requestFullscreen().catch(err => {
+                console.error('Error attempting to enable fullscreen:', err);
+              });
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+              iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, Opera
+              iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+              iframe.msRequestFullscreen();
+            }
+          } else {
+            console.error('No iframe found in the same section');
+          }
+        });
+      });
+    });
+  </script>
+#+end_export
+* asdfasdf
+#+begin_export html
+<button class="fullscreen-toggle">Toggle Fullscreen</button>
+<iframe
+src="https://trinket.io/embed/python3/5c78a83738"
+width="100%"
+height="356"
+frameborder="0"
+marginwidth="0"
+marginheight="0"
+allowfullscreen
+class="fullscreen-iframe"
+></iframe>
+
+#+end_export

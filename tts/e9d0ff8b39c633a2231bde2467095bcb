@@ -1,0 +1,2 @@
+This is a test case for a slide without section number. Here, a message box is shown during export; maybe a correct audio file name is guessed.
+With fragments, this will definitely not work. Use .audio name if in doubt.

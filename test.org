@@ -1,0 +1,179 @@
+#+Title: Slides
+#+Author: Laurent Pinson
+
+:PROPERTIES:
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+#+REVEAL_VERSION: 4
+#+REVEAL_ADD_PLUGIN: audioslideshow RevealAudioSlideshow https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/audio-slideshow/plugin.js
+#+REVEAL_ADD_PLUGIN: audiorecorder RevealAudioRecorder https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/audio-slideshow/recorder.js
+#+REVEAL_ADD_PLUGIN: anything RevealAnything https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/anything/plugin.js
+#+REVEAL_ADD_PLUGIN: chart RevealChart https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chart/plugin.js https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js
+#+REVEAL_ADD_PLUGIN: customcontrols RevealCustomControls https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css
+#+REVEAL_ADD_PLUGIN: animate RevealAnimate https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/animate/plugin.js https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.1.2/svg.min.js
+#+REVEAL_ADD_PLUGIN: menu RevealMenu https://cdn.jsdelivr.net/npm/reveal.js-menu@2.1.0/menu.js https://cdn.jsdelivr.net/npm/reveal.js-menu@2.1.0/menu.css
+
+#+REVEAL_ADD_PLUGIN: chalkboard RevealChalkboard https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css
+#+REVEAL_ADD_PLUGIN: loadcontent RevealLoadContent https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/loadcontent/plugin.js
+#+REVEAL_ADD_PLUGIN: seminar RevealSeminar https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/seminar/plugin.js https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js
+
+
+#+REVEAL_ADD_PLUGIN: poll RevealPoll https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/poll/plugin.js https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/poll/style.css
+# #+REVEAL_ADD_PLUGIN: questions RevealQuestions https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/questions/plugin.js https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/questions/style.css
+
+#+REVEAL_HEAD_PREAMBLE: <style type="text/css">.reveal > .overlay {backdrop-filter: unset!important; }</style>
+#+REVEAL_EXPORT_NOTES_TO_PDF:  hv
+#+REVEAL_PREAMBLE:
+#+OPTIONS: showNotes: true,  toc:nil reveal_width:1400 reveal_height:1000 reveal_embed_local_resources:nil reveal_mousewheel:true reveal_with_tts:true reveal_with_tts:CLB
+#+REVEAL_EXTRA_SCRIPTS: ("reveal.js/lib/js/head.min.js" "%slib/js/head.min.js" "<script>console.log(\"Empty script.\")</script>")
+#+REVEAL_HEAD_PREAMBLE: <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.6.2/RecordRTC.js"></script>
+
+#+REVEAL_PREAMBLE:  <script>console.log('Custom script loaded!');alert('Welcome to the presentation!');let count=0;const button=document.createElement("button");button.textContent="Click Me";button.style.color="blue";button.style.backgroundColor="white";button2=document.createElement("button");button2.textContent="Click me 2!";const counter=document.createElement("span");counter.textContent=`${count}`;counter.style.color="blue";counter.style.backgroundColor="white";button.onclick=()=>{count++;counter.textContent=`${count}`;};document.body.appendChild(button);document.body.appendChild(counter);</script>
+#+REVEAL_THEME: moon
+#+REVEAL_PREAMBLE: <script>const button1=document.createElement('button');button1.textContent='Button 1';const button2=document.createElement('button');button2.textContent='Button 2';document.body.appendChild(button1);document.body.appendChild(button2);</script>
+# Note that the default background does not apply to generated slides.
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND: ./nightlight.jpeg
+
+# Separate keywords exist for title slide and toc slide.  Specify toc:
+#+REVEAL_TOC_SLIDE_BACKGROUND: ./nightlight2.jpeg
+
+
+:END:
+
+* slide1
+#+begin_export html
+<p> something </p>
+<canvas data-chart="line" >
+<!--
+{
+ "data": {
+  "labels": ["January"," February"," March"," April"," May"," June"," July"],
+  "datasets":[
+   {
+    "data":[65,59,80,81,56,55,40],
+    "label":"My first dataset","backgroundColor":"rgba(20,220,220,.8)"
+   },
+   {
+    "data":[28,48,40,19,86,27,90],
+    "label":"My second dataset","backgroundColor":"rgba(220,120,120,.8)"
+   }
+  ]
+ }
+}
+-->
+</canvas>
+#+end_export
+
+* Second slide, different background
+  :PROPERTIES:
+  :reveal_background: linear-gradient(to left, #910830, #521623)
+  :END:
+More text
+
+** On background inheritance
+:PROPERTIES:
+:DESCRIPTION: something to describe this heading "on background inheritance"
+:END:
+:PROPERTIES:
+:reveal_background: linear-gradient(to left, #910830, #521623)
+
+:END:
+The previous slide uses a property for the background.  To have that
+inherited here, customize ~org-use-property-inheritance~.
+** inherited?
+
+* Another slide, again default background
+
+* Slide with quote
+
+#+attr_html: :cite https://tools.ietf.org/html/rfc1149
+#+attr_reveal: :frag t
+#+begin_quote
+Avian carriers can provide high delay, low throughput, and low altitude service.
+#+end_quote
+
+* Slide with embedded figure
+:PROPERTIES:
+:reveal_background: linear-gradient(to left, #910830, #521623)
+:END:
+#+begin_export html
+<iframe class=stretch src="https://giphy.com/embed/LmNwrBhejkK9EFP504" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+#+end_export
+* title 1
+
+#+begin_export html
+<section>
+    <button class="fullscreen-toggle">Toggle Fullscreen</button>
+    <iframe
+      src="https://trinket.io/embed/python3/5c78a83738"
+      width="100%"
+      height="356"
+      frameborder="0"
+      marginwidth="0"
+      marginheight="0"
+      allowfullscreen
+      class="fullscreen-iframe"
+    ></iframe>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add event listeners to all toggle buttons
+      const toggleButtons = document.querySelectorAll('.fullscreen-toggle');
+      toggleButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Find the iframe within the same section as the button
+          const iframe = button.closest('section').querySelector('.fullscreen-iframe');
+
+          if (iframe) {
+            if (iframe.requestFullscreen) {
+              iframe.requestFullscreen().catch(err => {
+                console.error('Error attempting to enable fullscreen:', err);
+              });
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+              iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, Opera
+              iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+              iframe.msRequestFullscreen();
+            }
+          } else {
+            console.error('No iframe found in the same section');
+          }
+        });
+      });
+    });
+  </script>
+#+end_export
+* asdfasdf
+#+begin_export html
+<button class="fullscreen-toggle">Toggle Fullscreen</button>
+<iframe
+src="https://trinket.io/embed/python3/5c78a83738"
+width="100%"
+height="356"
+frameborder="0"
+marginwidth="0"
+marginheight="0"
+allowfullscreen
+class="fullscreen-iframe"
+></iframe>
+
+#+end_export
+* some slide
+:PROPERTIES:
+:reveal_background: linear-gradient(to left, #910830, #521623)
+:LOCATION: test
+:END:
+** sub-slide
+* slide
+:PROPERTIES:
+:reveal_background: ./nightlight.jpeg
+:END:
+* title 2
+:PROPERTIES:
+:reveal_background: ./nightlight.jpeg
+:END:
+
+# Local Variables:
+# org-use-property-inheritance: true
+# End:

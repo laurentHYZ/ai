@@ -1,0 +1,1 @@
+This is a test case for continued section numbers. While the number for the audio file is correct here, a continuation on the same level of nesting does not work (section numbers by Org would be off by one per unnumbered slide).

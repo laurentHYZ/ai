@@ -1,0 +1,5 @@
+These notes are supposed to be transformed to audio by tea tea ess and read by the audio pluggin (if it is enabled). Org re reveal converts text to have each sentence on a single line, which is converted to audio.
+Lists can be used in notes as well.
+one. This is a first item in a list.
+two. Second item.
+As we aim for text to speech, notes should consist of full sentences, including full stops, question marks etcetera. Warnings are shown upon export if the code detects this not to be the case.

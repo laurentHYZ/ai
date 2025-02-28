@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Slides</title>
+<meta name="author" content="Laurent Pinson"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/moon.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.1.2/svg.min.js"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-menu@2.1.0/menu.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/poll/style.css"/>
+<style type="text/css">.reveal > .overlay {backdrop-filter: unset!important; }</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.6.2/RecordRTC.js"></script>
+</head>
+<body>
+<script>const button1=document.createElement('button');button1.textContent='Button 1';const button2=document.createElement('button');button2.textContent='Button 2';document.body.appendChild(button1);document.body.appendChild(button2);</script>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Slides</h1><h2 class="author">Laurent Pinson</h2><p class="date">Created: 2025-02-28 Fri 16:01</p>
+</section>
+<section id="table-of-contents-section" data-background="./nightlight2.jpeg">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#/slide-1">1. slide1</a></li>
+<li><a href="#/slide-2">2. Second slide, different background</a>
+<ul>
+<li><a href="#/slide-2-1">2.1. On background inheritance</a></li>
+<li><a href="#/slide-2-2">2.2. inherited?</a></li>
+</ul>
+</li>
+<li><a href="#/slide-3">3. Another slide, again default background</a></li>
+<li><a href="#/slide-4">4. Slide with quote</a></li>
+<li><a href="#/slide-5">5. Slide with embedded figure</a></li>
+<li><a href="#/slide-6">6. title 1</a></li>
+<li><a href="#/slide-7">7. asdfasdf</a></li>
+<li><a href="#/slide-8">8. some slide</a>
+<ul>
+<li><a href="#/slide-8-1">8.1. sub-slide</a></li>
+</ul>
+</li>
+<li><a href="#/slide-9">9. slide</a></li>
+<li><a href="#/slide-10">10. title 2</a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<section id="slide-1" data-background="./nightlight.jpeg">
+<h2 id="1"><span class="section-number-2">1.</span> slide1</h2>
+<p> something </p>
+<canvas data-chart="line" >
+<!--
+{
+ "data": {
+  "labels": ["January"," February"," March"," April"," May"," June"," July"],
+  "datasets":[
+   {
+    "data":[65,59,80,81,56,55,40],
+    "label":"My first dataset","backgroundColor":"rgba(20,220,220,.8)"
+   },
+   {
+    "data":[28,48,40,19,86,27,90],
+    "label":"My second dataset","backgroundColor":"rgba(220,120,120,.8)"
+   }
+  ]
+ }
+}
+-->
+</canvas>
+</section>
+</section>
+<section>
+<section id="slide-2" data-background="linear-gradient(to left, #910830, #521623)">
+<h2 id="2"><span class="section-number-2">2.</span> Second slide, different background</h2>
+<p>
+More text
+</p>
+</section>
+<section id="slide-2-1" data-background="linear-gradient(to left, #910830, #521623)">
+<h3 id="2-1"><span class="section-number-3">2.1.</span> On background inheritance</h3>
+<p>
+:reveal<sub>background</sub>: linear-gradient(to left, #910830, #521623)
+</p>
+<p>
+The previous slide uses a property for the background.  To have that
+inherited here, customize <code>org-use-property-inheritance</code>.
+</p>
+</section>
+<section id="slide-2-2" data-background="linear-gradient(to left, #910830, #521623)">
+<h3 id="2-2"><span class="section-number-3">2.2.</span> inherited?</h3>
+</section>
+</section>
+<section>
+<section id="slide-3" data-background="./nightlight.jpeg">
+<h2 id="3"><span class="section-number-2">3.</span> Another slide, again default background</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-4" data-background="./nightlight.jpeg">
+<h2 id="4"><span class="section-number-2">4.</span> Slide with quote</h2>
+<blockquote cite="https://tools.ietf.org/html/rfc1149" class="fragment">
+<p>
+Avian carriers can provide high delay, low throughput, and low altitude service.
+</p>
+</blockquote>
+</section>
+</section>
+<section>
+<section id="slide-5" data-background="linear-gradient(to left, #910830, #521623)">
+<h2 id="5"><span class="section-number-2">5.</span> Slide with embedded figure</h2>
+<iframe class=stretch src="https://giphy.com/embed/LmNwrBhejkK9EFP504" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+</section>
+</section>
+<section>
+<section id="slide-6" data-background="./nightlight.jpeg">
+<h2 id="6"><span class="section-number-2">6.</span> title 1</h2>
+<section>
+    <button class="fullscreen-toggle">Toggle Fullscreen</button>
+    <iframe
+      src="https://trinket.io/embed/python3/5c78a83738"
+      width="100%"
+      height="356"
+      frameborder="0"
+      marginwidth="0"
+      marginheight="0"
+      allowfullscreen
+      class="fullscreen-iframe"
+    ></iframe>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add event listeners to all toggle buttons
+      const toggleButtons = document.querySelectorAll('.fullscreen-toggle');
+      toggleButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Find the iframe within the same section as the button
+          const iframe = button.closest('section').querySelector('.fullscreen-iframe');
+
+          if (iframe) {
+            if (iframe.requestFullscreen) {
+              iframe.requestFullscreen().catch(err => {
+                console.error('Error attempting to enable fullscreen:', err);
+              });
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+              iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, Opera
+              iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+              iframe.msRequestFullscreen();
+            }
+          } else {
+            console.error('No iframe found in the same section');
+          }
+        });
+      });
+    });
+  </script>
+</section>
+</section>
+<section>
+<section id="slide-7" data-background="./nightlight.jpeg">
+<h2 id="7"><span class="section-number-2">7.</span> asdfasdf</h2>
+<button class="fullscreen-toggle">Toggle Fullscreen</button>
+<iframe
+src="https://trinket.io/embed/python3/5c78a83738"
+width="100%"
+height="356"
+frameborder="0"
+marginwidth="0"
+marginheight="0"
+allowfullscreen
+class="fullscreen-iframe"
+></iframe>
+</section>
+</section>
+<section>
+<section id="slide-8" data-background="linear-gradient(to left, #910830, #521623)">
+<h2 id="8"><span class="section-number-2">8.</span> some slide</h2>
+</section>
+<section id="slide-8-1" data-background="linear-gradient(to left, #910830, #521623)">
+<h3 id="8-1"><span class="section-number-3">8.1.</span> sub-slide</h3>
+</section>
+</section>
+<section>
+<section id="slide-9" data-background="./nightlight.jpeg">
+<h2 id="9"><span class="section-number-2">9.</span> slide</h2>
+</section>
+</section>
+<section>
+<section id="slide-10" data-background="./nightlight.jpeg">
+<h2 id="10"><span class="section-number-2">10.</span> title 2</h2>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/search/search.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom/zoom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/audio-slideshow/plugin.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/audio-slideshow/recorder.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/anything/plugin.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chart/plugin.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/animate/plugin.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-menu@2.1.0/menu.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/loadcontent/plugin.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/seminar/plugin.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/poll/plugin.js"></script>
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/lib/js/head.min.js"></script>
+<script>console.log("Empty script.")</script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: true,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+width: 1400,
+height: 1000,
+
+transition: 'convex',
+transitionSpeed: 'default',
+showNotes: window.location.search.match( /print-pdf/gi ) ? 'hv' : false,
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealMarkdown, RevealNotes, RevealSearch, RevealZoom, RevealAudioSlideshow, RevealAudioRecorder, RevealAnything, RevealChart, RevealCustomControls, RevealAnimate, RevealMenu, RevealChalkboard, RevealLoadContent, RevealSeminar, RevealPoll ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+});
+</script>
+</body>
+</html>
