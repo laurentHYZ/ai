@@ -1,0 +1,3163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>a.org file A</title>
+<meta name="author" content="Laurent Pinson"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="file:///home/laurent/.config/emacs/.local/straight/build-31.0.50/revealjs/dist/reveal.css"/>
+
+<link rel="stylesheet" href="file:///home/laurent/.config/emacs/.local/straight/build-31.0.50/revealjs/dist/theme/black.css" id="theme"/>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">a.org file A</h1><h2 class="author">Laurent Pinson</h2><h2 class="email"><a href="mailto:laurent@laurent-ThinkPad-X1-Carbon-4th">laurent@laurent-ThinkPad-X1-Carbon-4th</a></h2><p class="date">Created: 2025-02-28 Fri 13:22</p>
+</section>
+<p>
+:GPTEL<sub>MODEL</sub>: deepseek-coder
+:GPTEL<sub>BACKEND</sub>: DeepSeek
+:GPTEL<sub>SYSTEM</sub>: You are a large language model living in Emacs and a helpful assistant. Respond concisely.
+:GPTEL<sub>BOUNDS</sub>: ((143102 . 143764) (144330 . 145278) (145357 . 146096) (146151 . 146642) (146774 . 147204) (147229 . 147311) (147339 . 147619) (147621 . 148005) (148011 . 148077) (148089 . 148173) (148191 . 148515) (148797 . 149928) (149936 . 150839))
+:GPTEL<sub>NUM</sub><sub>MESSAGES</sub><sub>TO</sub><sub>SEND</sub>: 3
+</p>
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #a9a1e1;">set-face-attribute</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">default</span> nil <span style="color: #c678dd;">:family</span> <span style="color: #98be65;">"Iosevka"</span><span style="color: #51afef;">)</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">set-face-attribute</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">variable-pitch</span> nil <span style="color: #c678dd;">:family</span> <span style="color: #98be65;">"Iosevka Aile"</span><span style="color: #51afef;">)</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">set-face-attribute</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">org-modern-symbol</span> nil <span style="color: #c678dd;">:family</span> <span style="color: #98be65;">"Iosevka"</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+<section>
+<section id="slide-1">
+<h2 id="1"><span class="section-number-2">1.</span> please write a good emacs lisp tutorial. use bunch of example codes</h2>
+<p>
+Here’s a concise Emacs Lisp tutorial with examples to get you started:
+</p>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-1-0-1">
+<h4 id="1-0-1"><span class="section-number-4">1.0.1.</span> <b>1. Basics of Emacs Lisp</b></h4>
+<p>
+Emacs Lisp is a dialect of Lisp used to extend and customize Emacs. It’s a functional programming language with dynamic typing.
+</p>
+<ol class="org-ol">
+<li><a id="1-0-1-1"></a><b>Hello World</b><br />
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #98be65;">"Hello, World!"</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+<ul>
+<li><code>message</code> prints a string to the minibuffer.</li>
+
+</ul>
+</li>
+<li><a id="1-0-1-2"></a><b>Variables</b><br />
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> my-var <span style="color: #da8548; font-weight: bold;">42</span><span style="color: #51afef;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Set a variable</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #98be65;">"My variable is %d"</span> my-var<span style="color: #51afef;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Print it</span>
+</pre>
+</div>
+<ul>
+<li><code>setq</code> assigns a value to a variable.</li>
+<li><code>%d</code> is a format specifier for integers.</li>
+
+</ul>
+</li>
+<li><a id="1-0-1-3"></a><b>Functions</b><br />
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">greet</span> <span style="color: #c678dd;">(</span>name<span style="color: #c678dd;">)</span>
+  <span style="color: #83898d;">"Print a greeting message."</span>
+  <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #98be65;">"Hello, %s!"</span> name<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">funcall</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">greet</span> <span style="color: #98be65;">"Jane"</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+<ul>
+<li><code>defun</code> defines a function.</li>
+<li><code>"Hello, %s!"</code> uses <code>%s</code> to format a string.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</li>
+</ol>
+</section>
+<section id="slide-1-0-2">
+<h4 id="1-0-2"><span class="section-number-4">1.0.2.</span> <b>2. Lists and Data Structures</b></h4>
+<p>
+Lisp stands for &ldquo;LISt Processing,&rdquo; so lists are fundamental.
+</p>
+<ol class="org-ol">
+<li><a id="1-0-2-1"></a><b>Creating Lists</b><br />
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> my-list <span style="color: #51afef;">'</span><span style="color: #c678dd;">(</span><span style="color: #da8548; font-weight: bold;">1</span> <span style="color: #da8548; font-weight: bold;">2</span> <span style="color: #da8548; font-weight: bold;">3</span> <span style="color: #da8548; font-weight: bold;">4</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Create a list</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #98be65;">"First element: %d and the second is %S"</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">car</span> my-list<span style="color: #c678dd;">)</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">cdr</span> my-list<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Get the first element</span>
+<span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> my-list <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">cons</span> <span style="color: #da8548; font-weight: bold;">0</span> my-list<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Add to the front</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #98be65;">"New list: %S"</span> my-list<span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> my-list <span style="color: #51afef;">'</span><span style="color: #c678dd;">(</span><span style="color: #da8548; font-weight: bold;">1</span> <span style="color: #da8548; font-weight: bold;">2</span> <span style="color: #da8548; font-weight: bold;">3</span> <span style="color: #da8548; font-weight: bold;">4</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Create a list</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #98be65;">"First element: %d and the second is %S"</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">car</span> my-list<span style="color: #c678dd;">)</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">cdr</span> my-list<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Get the first element</span>
+
+</pre>
+</div>
+
+<p>
+&#x2014;
+</p>
+</li>
+</ol>
+</section>
+<section id="slide-1-0-3">
+<h4 id="1-0-3"><span class="section-number-4">1.0.3.</span> <b>3. Control Flow</b></h4>
+<div class="outline-text-4" id="text-1-0-3">
+</div>
+<ol class="org-ol">
+<li><a id="1-0-3-1"></a><b>If Statements</b><br />
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> x <span style="color: #da8548; font-weight: bold;">10</span><span style="color: #51afef;">)</span>
+<span style="color: #51afef;">(</span><span style="color: #51afef;">if</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">&gt;</span> x <span style="color: #da8548; font-weight: bold;">5</span><span style="color: #c678dd;">)</span>
+    <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #98be65;">"x is greater than 5"</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #98be65;">"x is less than or equal to 5"</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+<ul>
+<li><code>if</code> evaluates a condition and executes the corresponding block.</li>
+
+</ul>
+</li>
+<li><a id="1-0-3-2"></a><b>Loops</b><br />
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">dotimes</span> <span style="color: #c678dd;">(</span>i <span style="color: #da8548; font-weight: bold;">5</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">print</span> <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">format</span> <span style="color: #98be65;">"Iteration: %d"</span> i<span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Loop 5 times</span>
+</pre>
+</div>
+
+
+<p>
+What is wrong here? nothing gets printed within my orgmode file?
+</p>
+
+<p>
+The issue is that <code>print</code> in Emacs Lisp does not support format strings like <code>%d</code>. Instead, you should use <code>format</code> to create the string and then print it. Here&rsquo;s the corrected code:
+</p>
+
+<p>
+can you explain what &ldquo;format&rdquo; mean in the context of software?
+</p>
+
+<p>
+In software, &ldquo;format&rdquo; typically refers to the structure or layout of data, files, or text. It defines how information is organized, stored, or displayed. Examples include:
+</p>
+
+<ol>
+<li><b>File formats</b>: The way data is encoded in a file (e.g., <code>.txt</code>, <code>.json</code>, <code>.csv</code>).</li>
+<li><b>Text formatting</b>: How text is styled or arranged (e.g., bold, italic, alignment).</li>
+<li><b>Data formatting</b>: Converting data into a specific structure (e.g., dates, numbers, or strings).</li>
+
+</ol>
+
+<p>
+Let me know if you need more details!
+</p>
+
+
+<p>
+explain string formatting, and give me both examples using different languages, as well as sentences that use the term format. thank you
+</p>
+
+<p>
+String formatting is the process of creating strings by inserting variables or expressions into a template. It allows dynamic content to be embedded within a fixed structure.
+</p>
+
+<p>
+I think the term is confusing. we should not say &ldquo;string formatting&rdquo;, we should really say &ldquo;string construction&rdquo;. what do you think
+</p>
+
+<p>
+&ldquo;String construction&rdquo; is a reasonable alternative, but it might still be a bit broad. If you&rsquo;re referring specifically to inserting variables or expressions into a string, &ldquo;string interpolation&rdquo; is a more precise term. However, &ldquo;string formatting&rdquo; is widely understood and commonly used in programming contexts. If you find it confusing, clarifying the context or using examples can help.
+</p>
+
+<p>
+I think that string interpolation is even worse. please suggest other terms. thank you
+</p>
+
+<p>
+If &ldquo;string interpolation&rdquo; doesn&rsquo;t resonate with you, here are some alternative terms that might better suit your needs:
+</p>
+
+<ol>
+<li><b>String Formatting</b></li>
+<li><b>Template Literals</b></li>
+<li><b>String Substitution</b></li>
+<li><b>Placeholder Replacement</b></li>
+<li><b>Variable Embedding</b></li>
+<li><b>Text Interpolation</b></li>
+<li><b>Expression Embedding</b></li>
+<li><b>Dynamic String Construction</b></li>
+
+</ol>
+
+<p>
+Let me know if you&rsquo;d like further clarification!
+I like number 8. where is this term coming from?
+</p>
+
+
+
+<p>
+The term <i>Dynamic String Construction</i> emphasizes the process of building strings at runtime by embedding variables or expressions. It&rsquo;s a descriptive term that highlights the dynamic nature of the process, where the string&rsquo;s content is not fixed but constructed based on runtime values. It&rsquo;s commonly used in programming contexts to describe techniques like Python&rsquo;s f-strings, JavaScript&rsquo;s template literals, or similar features in other languages.
+</p>
+</li>
+</ol>
+</section>
+<section id="slide-1-0-4">
+<h4 id="1-0-4"><span class="section-number-4">1.0.4.</span> The term &ldquo;number 8&rdquo; likely refers to the number itself, which is a numeral in the decimal system. If you&rsquo;re referring to a specific context (e.g., sports, music, slang), please provide more details for a precise explanation.</h4>
+<p>
+<b>*</b>
+<b>*</b>
+</p>
+
+<p>
+<b>*</b>
+</p>
+</section>
+<section id="slide-1-0-5">
+<h4 id="1-0-5"><span class="section-number-4">1.0.5.</span> Examples in Different Languages:</h4>
+<ol>
+<li><p>
+<b>Python</b> (using f-strings):
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">   <span style="color: #dcaeea;">name</span> = <span style="color: #98be65;">"Alice"</span>
+   <span style="color: #dcaeea;">age</span> = <span style="color: #da8548; font-weight: bold;">30</span>
+   <span style="color: #dcaeea;">formatted_string</span> = f<span style="color: #98be65;">"My name is </span>{name}<span style="color: #98be65;"> and I am </span>{age}<span style="color: #98be65;"> years old."</span>
+   <span style="color: #c678dd;">print</span>(formatted_string)
+</pre>
+</div></li>
+
+<li><p>
+<b>JavaScript</b> (using template literals):
+</p>
+<div class="org-src-container">
+
+<pre class="src src-javascript">   <span style="color: #51afef;">let</span> <span style="color: #dcaeea;">name</span> = <span style="color: #98be65;">"Bob"</span>;
+   <span style="color: #51afef;">let</span> <span style="color: #dcaeea;">age</span> = <span style="color: #da8548; font-weight: bold;">25</span>;
+   <span style="color: #51afef;">let</span> <span style="color: #dcaeea;">formattedString</span> = <span style="color: #98be65;">`My name is ${name} and I am ${age} years old.`</span>;
+   console.log(formattedString);
+</pre>
+</div></li>
+
+<li><p>
+<b>C#</b> (using <code>String.Format</code>):
+</p>
+<div class="org-src-container">
+
+<pre class="src src-csharp">   <span style="color: #ECBE7B;">string</span> <span style="color: #dcaeea;">name</span> = <span style="color: #98be65;">"Charlie"</span>;
+   <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">age</span> = <span style="color: #da8548; font-weight: bold;">28</span>;
+   <span style="color: #ECBE7B;">string</span> <span style="color: #dcaeea;">formattedString</span> = String.<span style="color: #c678dd;">Format</span>(<span style="color: #98be65;">"My name is {0} and I am {1} years old."</span>, name, age);
+   Console.<span style="color: #c678dd;">WriteLine</span>(formattedString);
+</pre>
+</div></li>
+
+</ol>
+</section>
+<section id="slide-1-0-6">
+<h4 id="1-0-6"><span class="section-number-4">1.0.6.</span> Sentences Using the Term &ldquo;Format&rdquo;:</h4>
+<ul>
+<li>&ldquo;The document needs to be saved in PDF format for submission.&rdquo;</li>
+<li>&ldquo;Please format your code according to the style guide.&rdquo;</li>
+<li>&ldquo;The date was displayed in the wrong format, so I had to adjust it.&rdquo;</li>
+<li>&ldquo;The email template uses a specific format to include personalized details.&rdquo;</li>
+<li>&ldquo;The API response is returned in JSON format for easy parsing.&rdquo;</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">dotimes</span> <span style="color: #c678dd;">(</span>i <span style="color: #da8548; font-weight: bold;">5</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">print</span> <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">format</span> <span style="color: #98be65;">"Iteration: %d"</span> i<span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Loop 5 times</span>
+</pre>
+</div>
+<ol class="org-ol">
+<li><a id="1-0-6-1"></a><b>While Loops</b><br />
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> counter <span style="color: #da8548; font-weight: bold;">0</span><span style="color: #51afef;">)</span>
+<span style="color: #51afef;">(</span><span style="color: #51afef;">while</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">&lt;</span> counter <span style="color: #da8548; font-weight: bold;">5</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">print</span> <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">format</span> <span style="color: #98be65;">"Counter: %d"</span> counter<span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">setq</span> counter <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">1+</span> counter<span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Increment counter</span>
+</pre>
+</div>
+</li>
+</ol>
+</section>
+<section id="slide-1-0-7">
+<h4 id="1-0-7"><span class="section-number-4">1.0.7.</span> <b>5. Interacting with Files</b></h4>
+<div class="outline-text-4" id="text-1-0-7">
+</div>
+<ol class="org-ol">
+<li><a id="1-0-7-1"></a><b>Read a File</b><br />
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> file-content <span style="color: #c678dd;">(</span><span style="color: #51afef;">with-temp-buffer</span>
+                     <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">insert-file-contents</span> <span style="color: #98be65;">"example.txt"</span><span style="color: #98be65;">)</span>
+                     <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">buffer-string</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #98be65;">"File content: %s"</span> file-content<span style="color: #51afef;">)</span>
+</pre>
+</div>
+<ul>
+<li><code>insert-file-contents</code> reads a file into a buffer.</li>
+
+</ul>
+</li>
+<li><a id="1-0-7-2"></a><b>Write to a File</b><br />
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">with-temp-file</span> <span style="color: #98be65;">"output2.txt"</span>
+  <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">insert</span> <span style="color: #98be65;">"This is written to a file."</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+<ul>
+<li><code>with-temp-file</code> creates and writes to a file.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</li>
+</ol>
+</section>
+<section id="slide-1-0-8">
+<h4 id="1-0-8"><span class="section-number-4">1.0.8.</span> <b>6. Custom Keybindings</b></h4>
+<div class="outline-text-4" id="text-1-0-8">
+</div>
+<ol class="org-ol">
+<li><a id="1-0-8-1"></a><b>Define a Keybinding</b><br />
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #a9a1e1;">global-set-key</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">kbd</span> <span style="color: #98be65;">"C-c h"</span><span style="color: #c678dd;">)</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">greet</span><span style="color: #51afef;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Bind C-c h to the `greet` function</span>
+</pre>
+</div>
+<ul>
+<li><code>global-set-key</code> binds a key sequence to a function.</li>
+
+</ul>
+</li>
+<li><a id="1-0-8-2"></a><b>Local Keybinding</b><br />
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #a9a1e1;">define-key</span> <span style="color: #dcaeea;">emacs-lisp-mode-map</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">kbd</span> <span style="color: #98be65;">"C-c l"</span><span style="color: #c678dd;">)</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">message</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+<ul>
+<li><code>define-key</code> binds a key in a specific mode.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</li>
+</ol>
+</section>
+<section id="slide-1-0-9">
+<h4 id="1-0-9"><span class="section-number-4">1.0.9.</span> <b>7. Hooks</b></h4>
+<p>
+Hooks allow you to run code when certain events occur.
+</p>
+<ol class="org-ol">
+<li><a id="1-0-9-1"></a><b>Add a Hook</b><br />
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #a9a1e1;">add-hook</span> <span style="color: #51afef;">'</span><span style="color: #dcaeea;">emacs-lisp-mode-hook</span>
+          <span style="color: #c678dd;">(</span><span style="color: #51afef;">lambda</span> <span style="color: #98be65;">()</span>
+            <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #98be65;">"Emacs Lisp mode activated!"</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+<ul>
+<li><code>add-hook</code> adds a function to a hook.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</li>
+</ol>
+</section>
+<section id="slide-1-0-10">
+<h4 id="1-0-10"><span class="section-number-4">1.0.10.</span> <b>8. Error Handling</b></h4>
+<div class="outline-text-4" id="text-1-0-10">
+</div>
+<ol class="org-ol">
+<li><a id="1-0-10-1"></a><b>Catch Errors</b><br />
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">condition-case</span> err
+    <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">/</span> <span style="color: #da8548; font-weight: bold;">1</span> <span style="color: #da8548; font-weight: bold;">0</span><span style="color: #c678dd;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Division by zero</span>
+  <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">error</span> <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #98be65;">"Error: %s"</span> err<span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+<ul>
+<li><code>condition-case</code> catches and handles errors.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</li>
+</ol>
+</section>
+<section id="slide-1-0-11">
+<h4 id="1-0-11"><span class="section-number-4">1.0.11.</span> <b>9. Example: Simple Calculator</b></h4>
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">simple-calculator</span> <span style="color: #c678dd;">()</span>
+  <span style="color: #83898d;">"A simple calculator in Emacs Lisp."</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">interactive</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">let</span> <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">(</span>x <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">read-number</span> <span style="color: #98be65;">"Enter first number: "</span><span style="color: #51afef;">)</span><span style="color: #a9a1e1;">)</span>
+        <span style="color: #a9a1e1;">(</span>y <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">read-number</span> <span style="color: #98be65;">"Enter second number: "</span><span style="color: #51afef;">)</span><span style="color: #a9a1e1;">)</span>
+        <span style="color: #a9a1e1;">(</span>op <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">read-char</span> <span style="color: #98be65;">"Enter operator (+, -, *, /): "</span><span style="color: #51afef;">)</span><span style="color: #a9a1e1;">)</span><span style="color: #98be65;">)</span>
+    <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #98be65;">"Result: %d"</span>
+             <span style="color: #a9a1e1;">(</span><span style="color: #51afef;">cond</span>
+              <span style="color: #51afef;">(</span><span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">=</span> op ?+<span style="color: #c678dd;">)</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">+</span> x y<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+              <span style="color: #51afef;">(</span><span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">=</span> op ?-<span style="color: #c678dd;">)</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">-</span> x y<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+              <span style="color: #51afef;">(</span><span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">=</span> op ?*<span style="color: #c678dd;">)</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">*</span> x y<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+              <span style="color: #51afef;">(</span><span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">=</span> op ?/<span style="color: #c678dd;">)</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">/</span> x y<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+              <span style="color: #51afef;">(</span>t <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">error</span> <span style="color: #98be65;">"Invalid operator"</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span><span style="color: #a9a1e1;">)</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+
+<span style="color: #51afef;">(</span>simple-calculator<span style="color: #51afef;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Run the calculator</span>
+</pre>
+</div>
+<ul>
+<li><code>interactive</code> makes the function callable with <code>M-x</code>.</li>
+<li><code>let</code> binds local variables.</li>
+<li><code>cond</code> is a multi-way conditional.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-1-0-12">
+<h4 id="1-0-12"><span class="section-number-4">1.0.12.</span> <b>10. Example: Count Words</b></h4>
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">count-words</span> <span style="color: #c678dd;">()</span>
+  <span style="color: #83898d;">"Count the number of words in the buffer."</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">interactive</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #98be65;">"Word count: %d"</span> <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">count-words-region</span> <span style="color: #a9a1e1;">(</span><span style="color: #a9a1e1;">point-min</span><span style="color: #a9a1e1;">)</span> <span style="color: #a9a1e1;">(</span><span style="color: #a9a1e1;">point-max</span><span style="color: #a9a1e1;">)</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">count-words</span><span style="color: #51afef;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Run the word counter</span>
+</pre>
+</div>
+<ul>
+<li><code>count-words-region</code> counts words in a region.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+
+<p>
+This tutorial covers the basics of Emacs Lisp. Experiment with these examples and explore the Emacs Lisp manual (<code>C-h i m elisp</code>) for more advanced topics!
+</p>
+
+<p>
+<b>*</b>
+</p>
+
+
+<p>
+*
+Please write proper elisp code for a function taking one argument, the name of a file to create.
+when called, that function will create the file and write a string to it.
+</p>
+
+
+<p>
+Here&rsquo;s a concise Elisp function that creates a file and writes a string to it:
+Look at the code here:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">create-file-with-content</span> <span style="color: #c678dd;">(</span>filename<span style="color: #c678dd;">)</span>
+  <span style="color: #83898d;">"Create a file named FILENAME and write a string to it."</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">with-temp-file</span> filename
+    <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">insert</span> <span style="color: #98be65;">"This is the content of the file."</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+<p>
+modify it so that: if the name of the file already exists then the system asks us to pick another name (pick another as this file already exists), if the file name does not exist then ok create it and write to it.
+</p>
+
+
+<p>
+Here&rsquo;s the modified code:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">create-file-with-content</span> <span style="color: #c678dd;">(</span>filename<span style="color: #c678dd;">)</span>
+  <span style="color: #83898d;">"Create a file named FILENAME and write a string to it.</span>
+<span style="color: #83898d;">If the file already exists, prompt for a new name."</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">if</span> <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">file-exists-p</span> filename<span style="color: #98be65;">)</span>
+      <span style="color: #98be65;">(</span><span style="color: #51afef;">progn</span>
+        <span style="color: #a9a1e1;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #98be65;">"File '</span><span style="color: #a9a1e1;">%s</span><span style="color: #98be65;">' already exists. Please pick another name."</span> filename<span style="color: #a9a1e1;">)</span>
+        <span style="color: #a9a1e1;">(</span><span style="color: #51afef;">setq</span> filename <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">read-file-name</span> <span style="color: #98be65;">"Enter a new filename: "</span><span style="color: #51afef;">)</span><span style="color: #a9a1e1;">)</span><span style="color: #98be65;">)</span>
+    <span style="color: #98be65;">(</span><span style="color: #51afef;">with-temp-file</span> filename
+      <span style="color: #a9a1e1;">(</span><span style="color: #a9a1e1;">insert</span> <span style="color: #98be65;">"This is the content of the file."</span><span style="color: #a9a1e1;">)</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+<p>
+How would you call this function? please provide example. thank you
+</p>
+
+<p>
+You can call the function <code>create-file-with-content</code> by passing a filename as an argument. For example:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #51afef;">(</span>create-file-with-content <span style="color: #98be65;">"example.txt"</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+
+<p>
+I like the power of emacs. some emacs packages are very powerful and I would like to use them within my web app. is there a way for me to do that?
+</p>
+
+<p>
+Yes, you can integrate Emacs packages into your web app by running Emacs in server mode and communicating with it via a backend. Here&rsquo;s a concise approach:
+</p>
+
+<ol>
+<li><b>Run Emacs as a server</b>: Start Emacs in server mode (<code>emacs --daemon</code>) to keep it running in the background.</li>
+<li><b>Expose functionality via a backend</b>: Use a backend (e.g., Python, Node.js) to send commands to Emacs using <code>emacsclient</code> or a library like <code>emacs-remote</code>.</li>
+<li><b>Call Emacs functions</b>: Use <code>emacsclient</code> to evaluate Elisp code or call specific functions from your backend.</li>
+<li><b>Expose APIs</b>: Create REST or WebSocket endpoints in your backend to interact with Emacs functionality.</li>
+
+</ol>
+
+<p>
+This setup allows you to leverage Emacs packages (e.g., Org-mode, Magit) in your web app while keeping Emacs running as a service.
+</p>
+</section>
+<section id="slide-1-0-13">
+<h4 id="1-0-13"><span class="section-number-4">1.0.13.</span> I don&rsquo;t understand. give me a simple example, I want to have an idea of how it could look like</h4>
+<p>
+Sure! Here&rsquo;s a simple example of how you might use Emacs to write and run a Python script:
+</p>
+
+<ol>
+<li>Open Emacs.</li>
+<li>Press <code>C-x C-f</code> (Ctrl + x, then Ctrl + f) to create/open a file, and name it <code>example.py</code>.</li>
+<li><p>
+Type the following Python code:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python">   <span style="color: #c678dd;">print</span>(<span style="color: #98be65;">"Hello, Emacs!"</span>)
+</pre>
+</div></li>
+
+<li>Save the file with <code>C-x C-s</code> (Ctrl + x, then Ctrl + s).</li>
+<li>To run the script, press <code>M-!</code> (Alt + Shift + 1), type <code>python example.py</code>, and press Enter.</li>
+<li>You should see &ldquo;Hello, Emacs!&rdquo; printed in the minibuffer or a new buffer.</li>
+
+</ol>
+
+<p>
+This is a basic workflow in Emacs! Let me know if you need more details.
+This is a basic workflow This is a basic workflow This is a basic workflow This is a basic workflow This is a basic workflow This is a basic workflow 
+<b>*</b>
+</p>
+
+<p>
+I am using doom emacs. please tell me what the difference is between evil-yank and copy-region-as-kill
+thank you
+</p>
+
+<p>
+In Doom Emacs:
+</p>
+
+<ul>
+<li><b>evil-yank</b>: This is a Vim-style yank command (from Evil mode). It copies text to the Vim-style register, which is separate from Emacs&rsquo; kill ring. It behaves like <code>y</code> in Vim.</li>
+
+<li><b>copy-region-as-kill</b>: This is an Emacs-native command. It copies text to the Emacs kill ring, which is used by Emacs&rsquo; yanking (pasting) commands like <code>yank</code> (<code>C-y</code>).</li>
+
+</ul>
+
+<p>
+The key difference is that <code>evil-yank</code> uses Vim registers, while <code>copy-region-as-kill</code> uses the Emacs kill ring. They are not directly interchangeable.
+</p>
+</section>
+<section id="slide-1-0-14">
+<h4 id="1-0-14"><span class="section-number-4">1.0.14.</span> what are vim registers?</h4>
+<p>
+Vim registers are storage locations for text, similar to clipboards. In Vim (and Evil mode in Emacs), you can use registers to save and retrieve text. Here&rsquo;s a quick overview:
+</p>
+
+<ol>
+<li><i>Unnamed register</i>: Used by default for yanking (copying) and deleting. Accessed with <code>""</code>.</li>
+<li><i>Named registers</i>: User-defined registers, named <code>a-z</code>. Save text with <code>"ay</code> (yank to register <code>a</code>) or retrieve with <code>"ap</code> (paste from register <code>a</code>).</li>
+<li><i>System clipboard</i>: Accessed with <code>"+</code> or <code>"*</code> for copying/pasting to/from the system clipboard.</li>
+
+</ol>
+
+<p>
+Registers allow you to manage multiple pieces of text independently, unlike Emacs&rsquo; single kill ring.
+</p>
+
+<p>
+<b>*</b>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-racket">
+</pre>
+</div>
+<p>
+write some code in racket.
+</p>
+
+<p>
+Here’s a simple Racket example that defines a function to calculate the factorial of a number:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-racket"><span style="color: #51afef;">(</span><span style="color: #51afef;">define</span> <span style="color: #c678dd;">(</span><span style="color: #c678dd;">factorial</span> n<span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">if</span> <span style="color: #98be65;">(</span><span style="color: #c678dd;">&lt;=</span> n <span style="color: #da8548; font-weight: bold;">1</span><span style="color: #98be65;">)</span>
+      <span style="color: #da8548; font-weight: bold;">1</span>
+      <span style="color: #98be65;">(</span><span style="color: #c678dd;">*</span> n <span style="color: #a9a1e1;">(</span>factorial <span style="color: #51afef;">(</span><span style="color: #c678dd;">-</span> n <span style="color: #da8548; font-weight: bold;">1</span><span style="color: #51afef;">)</span><span style="color: #a9a1e1;">)</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+
+<span style="color: #51afef;">(</span>factorial <span style="color: #da8548; font-weight: bold;">5</span><span style="color: #51afef;">)</span>  <span style="color: #5B6268;">; </span><span style="color: #5B6268;">Returns 120</span>
+</pre>
+</div>
+
+<p>
+This code defines a recursive factorial function and demonstrates its usage. Let me know if you&rsquo;d like more examples!
+</p>
+
+<p>
+<b>*</b>
+</p>
+
+<p>
+I have installed racket within doom emacs.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-racket">
+</pre>
+</div>
+
+
+<p>
+write a simple print statement in racket. thank you
+</p>
+
+<p>
+You&rsquo;re welcome! Here&rsquo;s a simple print statement in Racket:
+</p>
+
+
+
+<p>
+Within org-mode I wrote the following source block.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-racket"><span style="color: #51afef;">(</span><span style="color: #c678dd;">displayln</span> <span style="color: #98be65;">"Hello, Racket!"</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+<p>
+I got this error message:
+default-load-handler: expected a `module&rsquo; declaration, but found something else
+  file: /tmp/babel-19lA3n/ob-8bN2qL.rkt
+[ Babel evaluation exited with code 1 ]
+</p>
+
+<p>
+The error occurs because Racket expects a <code>module</code> declaration at the top of the file. To fix this, wrap your code in a <code>module</code> declaration like this:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-racket"><span style="color: #51afef;">(</span><span style="color: #c678dd;">displayln</span> <span style="color: #98be65;">"Hello, Racket!"</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+<p>
+write racket sicp code to print a simple hello string to screen.
+</p>
+
+<p>
+Here&rsquo;s a simple Racket (SICP-style) code to print &ldquo;Hello&rdquo; to the screen:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-racket"><span style="color: #51afef;">(</span><span style="color: #c678dd;">display</span> <span style="color: #98be65;">"Hello"</span><span style="color: #51afef;">)</span>
+<span style="color: #51afef;">(</span><span style="color: #c678dd;">newline</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+
+
+
+<p>
+The error indicates that the <code>racket</code> command is not installed or not in your system&rsquo;s <code>PATH</code>. To resolve this:
+</p>
+
+<ol>
+<li>Install Racket from [<a href="https://racket-lang.org">https://racket-lang.org</a>](<a href="https://racket-lang.org">https://racket-lang.org</a>).</li>
+<li>Ensure the <code>racket</code> executable is in your <code>PATH</code>. You can test this by running <code>racket</code> in your terminal.</li>
+<li>Restart Emacs to ensure it picks up the updated <code>PATH</code>.</li>
+
+</ol>
+
+<p>
+If installed correctly, the code block should execute without errors.
+</p>
+</section>
+<section id="slide-1-0-15">
+<h4 id="1-0-15"><span class="section-number-4">1.0.15.</span> #+RESULTS:</h4>
+<p>
+this is a good video about coding. great.
+thank you for sharing.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-2">
+<h2 id="2"><span class="section-number-2">2.</span> I am using doom emacs. how do i switch my input language?</h2>
+<p>
+To switch your input language in Doom Emacs, you can use the <code>set-input-method</code> command. Here&rsquo;s how:
+</p>
+
+<ol>
+<li>Press <code>M-x</code> (Alt + x or Meta + x).</li>
+<li>Type <code>set-input-method</code> and press Enter.</li>
+<li>Choose your desired input method (e.g., <code>chinese-py</code>, <code>japanese</code>, etc.).</li>
+
+</ol>
+
+<p>
+To make this easier, you can bind a key to toggle input methods. Add this to your <code>config.el</code>:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #a9a1e1;">global-set-key</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">kbd</span> <span style="color: #98be65;">"C-\\"</span><span style="color: #c678dd;">)</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">toggle-input-method</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+<p>
+Now, pressing <code>C-\</code> (Ctrl + \) will toggle your input method.
+</p>
+
+<p>
+<b>*</b>
+他是来子那里的朋有?
+自从我们认识他一直没有给我回信。 到底是怎么回事儿？他是来子那里的朋有 ?
+我人是你 他是来子哪里的朋有?
+我
+ :i嗯
+of course.
+他是来子发国的朋有
+</p>
+<hr />
+<div class="org-src-container">
+
+<pre class="src src-racket">
+</pre>
+</div>
+
+<p>
+write me some code block in sicp racket
+</p>
+
+
+<p>
+Here’s a simple code block in SICP-style Racket (Scheme) that defines a recursive function to compute the factorial of a number:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-racket"><span style="color: #51afef;">(</span><span style="color: #51afef;">define</span> <span style="color: #c678dd;">(</span><span style="color: #c678dd;">factorial</span> n<span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">if</span> <span style="color: #98be65;">(</span><span style="color: #c678dd;">=</span> n <span style="color: #da8548; font-weight: bold;">0</span><span style="color: #98be65;">)</span>
+      <span style="color: #da8548; font-weight: bold;">1</span>
+      <span style="color: #98be65;">(</span><span style="color: #c678dd;">*</span> n <span style="color: #a9a1e1;">(</span>factorial <span style="color: #51afef;">(</span><span style="color: #c678dd;">-</span> n <span style="color: #da8548; font-weight: bold;">1</span><span style="color: #51afef;">)</span><span style="color: #a9a1e1;">)</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+
+<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Example usage:</span>
+<span style="color: #51afef;">(</span>factorial <span style="color: #da8548; font-weight: bold;">5</span><span style="color: #51afef;">)</span>  <span style="color: #5B6268;">; </span><span style="color: #5B6268;">Returns 120</span>
+</pre>
+</div>
+
+
+
+<p>
+what is a domain specific language? DSL?
+</p>
+
+<p>
+A Domain-Specific Language (DSL) is a programming language designed for a specific application domain, offering tailored syntax and features to solve problems in that area. Examples include SQL for database queries and LaTeX for document formatting. DSLs can be internal (embedded in a host language) or external (standalone).
+</p>
+
+<p>
+<b>*</b>
+give me example of DSL that you think might emerge in the field of AGI?
+</p>
+
+<p>
+A Domain-Specific Language (DSL) for AGI (Artificial General Intelligence) might focus on abstract reasoning, learning, and adaptability. Here&rsquo;s an example:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-plaintext">DSL: **AGI-Reason**
+
+// Define a learning task
+task LearnLanguage {
+    input: TextCorpus
+    output: LanguageModel
+    method: SelfSupervisedLearning
+    constraints: MinimizeEnergyUsage
+}
+
+// Define a reasoning process
+process SolveProblem {
+    input: ProblemStatement
+    output: Solution
+    steps: [
+        Analyze(ProblemStatement),
+        GenerateHypotheses,
+        TestHypotheses,
+        RefineSolution
+    ]
+    feedback: HumanInTheLoop
+}
+
+// Define adaptability rules
+rule AdaptToEnvironment {
+    trigger: EnvironmentChange
+    actions: [
+        UpdateKnowledgeBase,
+        AdjustLearningRate,
+        ReconfigureTaskPriorities
+    ]
+}
+
+// Define ethical constraints
+constraint EthicalBehavior {
+    principles: [
+        AvoidHarm,
+        RespectPrivacy,
+        EnsureTransparency
+    ]
+}
+</pre>
+</div>
+
+<p>
+This DSL allows AGI systems to be programmed with high-level abstractions for learning, reasoning, and adapting, while incorporating ethical considerations.
+</p>
+</section>
+<section id="slide-2-0-1">
+<h4 id="2-0-1"><span class="section-number-4">2.0.1.</span> can you explain the pros of such a DSL compared to using plain python ( or other versatile coding language ) to program?</h4>
+<p>
+Certainly! Here are the key advantages of using a DSL for AGI over a general-purpose language like Python:
+</p>
+
+<ol>
+<li><b>Abstraction</b>:
+<ul>
+<li>A DSL provides high-level abstractions tailored to AGI tasks (e.g., <code>LearnLanguage</code>, <code>SolveProblem</code>), reducing boilerplate code and making the intent clearer.</li>
+<li>In Python, you&rsquo;d need to implement these concepts from scratch, leading to verbose and less readable code.</li>
+
+</ul></li>
+
+<li><b>Domain-Specific Optimization</b>:
+<ul>
+<li>A DSL can include built-in optimizations for AGI tasks (e.g., efficient memory management for large-scale learning).</li>
+<li>Python, being general-purpose, lacks such optimizations out-of-the-box and requires additional libraries or custom implementations.</li>
+
+</ul></li>
+
+<li><b>Safety and Constraints</b>:
+<ul>
+<li>A DSL can enforce domain-specific constraints (e.g., ethical behavior, energy usage) directly in the syntax, reducing the risk of errors.</li>
+<li>In Python, these constraints would need to be manually implemented and checked, increasing complexity and potential for mistakes.</li>
+
+</ul></li>
+
+<li><b>Ease of Use for Domain Experts</b>:
+<ul>
+<li>A DSL is designed for AGI researchers, allowing them to express ideas in familiar terms without deep programming expertise.</li>
+<li>Python requires more general programming knowledge, which can be a barrier for non-programmers in the field.</li>
+
+</ul></li>
+
+<li><b>Consistency and Standardization</b>:
+<ul>
+<li>A DSL promotes consistent patterns and practices for AGI development, reducing fragmentation.</li>
+<li>In Python, developers might use vastly different approaches, making collaboration and maintenance harder.</li>
+
+</ul></li>
+
+<li><b>Tooling and Debugging</b>:
+<ul>
+<li>A DSL can include specialized tools for debugging and visualizing AGI-specific processes (e.g., learning curves, reasoning steps).</li>
+<li>Python lacks such tools natively and relies on external libraries, which may not be as integrated.</li>
+
+</ul></li>
+
+</ol>
+
+<p>
+In summary, a DSL for AGI offers <b>clarity, efficiency, and safety</b> tailored to the domain, while Python provides flexibility at the cost of increased complexity and lower domain-specific support.
+</p>
+
+<p>
+<b>*</b>
+do you think that we are going to have to develop DSL in the field of AI? is it important to have DSL tailored to advanced AI systems?
+</p>
+
+<p>
+<b>*Yes</b>, developing <b>Domain-Specific Languages (DSLs)</b> for advanced AI systems will likely become critical as the field evolves. Here&rsquo;s why:
+</p>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-2-0-2">
+<h4 id="2-0-2"><span class="section-number-4">2.0.2.</span> <b>1. Growing Complexity Demands Abstraction</b></h4>
+<p>
+Advanced AI (e.g., AGI, autonomous systems) requires coordinating diverse capabilities like learning, reasoning, ethics, and real-time adaptation.
+</p>
+<ul>
+<li><b>DSL Benefit</b>: A DSL can abstract low-level implementation details (e.g., neural network architectures) into high-level primitives (e.g., <code>LearnFrom(Environment)</code> or <code>EnsureEthicalConstraint</code>), letting researchers focus on <i>what</i> the system should do, not <i>how</i>.</li>
+<li><b>General-Purpose Limitation</b>: Languages like Python force developers to mix domain logic with boilerplate code, increasing cognitive overhead and error risk.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-2-0-3">
+<h4 id="2-0-3"><span class="section-number-4">2.0.3.</span> <b>2. Safety and Ethics by Design</b></h4>
+<p>
+As AI systems gain autonomy, enforcing safety and ethical constraints becomes non-negotiable.
+</p>
+<ul>
+<li><b>DSL Benefit</b>: Constraints like <code>AvoidHarm</code> or <code>MaximizeTransparency</code> can be baked into the language syntax, ensuring they’re not optional or easily overlooked.</li>
+<li><b>General-Purpose Limitation</b>: In Python, such rules rely on ad-hoc libraries or manual checks, which are error-prone and hard to standardize.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-2-0-4">
+<h4 id="2-0-4"><span class="section-number-4">2.0.4.</span> <b>3. Performance and Optimization</b></h4>
+<p>
+AI systems (especially AGI) require efficient resource use (compute, memory, energy).
+</p>
+<ul>
+<li><b>DSL Benefit</b>: A DSL can include domain-specific optimizations (e.g., auto-scaling learning rates, dynamic task prioritization) that general-purpose compilers/interpreters can’t match.</li>
+<li><b>General-Purpose Limitation</b>: Python’s flexibility comes at the cost of runtime inefficiency, often requiring C++ extensions or specialized frameworks (e.g., PyTorch) for speed.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-2-0-5">
+<h4 id="2-0-5"><span class="section-number-4">2.0.5.</span> <b>4. Democratization of AI Development</b></h4>
+<p>
+As AI expands beyond coding experts (e.g., ethicists, policymakers), DSLs lower the barrier to entry.
+</p>
+<ul>
+<li><b>DSL Benefit</b>: Syntax can align with domain experts’ mental models (e.g., <code>DefineGoal(Outcome)</code> instead of writing loops/classes).</li>
+<li><b>General-Purpose Limitation</b>: Python still requires programming expertise, limiting collaboration with non-technical stakeholders.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-2-0-6">
+<h4 id="2-0-6"><span class="section-number-4">2.0.6.</span> <b>5. Standardization and Reproducibility</b></h4>
+<p>
+Fragmented AI frameworks (TensorFlow, PyTorch, JAX) create silos.
+</p>
+<ul>
+<li><b>DSL Benefit</b>: A unified DSL could standardize core concepts (e.g., learning, planning) across frameworks, improving reproducibility and collaboration.</li>
+<li><b>General-Purpose Limitation</b>: Python’s flexibility encourages divergent implementations, making results harder to compare or replicate.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-2-0-7">
+<h4 id="2-0-7"><span class="section-number-4">2.0.7.</span> <b>Challenges to Overcome</b></h4>
+<ul>
+<li><b>Adoption</b>: DSLs require buy-in from the community and integration with existing tools.</li>
+<li><b>Tooling</b>: Robust IDEs, debuggers, and compilers must be built.</li>
+<li><b>Balance</b>: DSLs risk overspecialization; they should complement, not replace, general-purpose languages.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-2-0-8">
+<h4 id="2-0-8"><span class="section-number-4">2.0.8.</span> <b>Conclusion</b></h4>
+<p>
+DSLs for advanced AI are not just <i>important</i> but <b>inevitable</b> as systems grow more complex and safety-critical. They offer a path to:
+</p>
+<ul>
+<li><b>Safer systems</b> (via built-in constraints),</li>
+<li><b>More efficient development</b> (via abstractions),</li>
+<li><b>Broader collaboration</b> (via accessibility).</li>
+
+</ul>
+
+<p>
+The future of AI will likely involve a <b>layered ecosystem</b>:
+</p>
+<ol>
+<li><b>DSLs</b> for high-level intent (e.g., <code>AlignWithHumanValues</code>),</li>
+<li><b>General-purpose languages</b> (Python/Rust) for mid-layer logic,</li>
+<li><b>Low-level frameworks</b> (CUDA, TPU-specific code) for performance.</li>
+
+</ol>
+
+<p>
+Without DSLs, scaling advanced AI systems responsibly will become exponentially harder.
+</p>
+</section>
+<section id="slide-2-0-9">
+<h4 id="2-0-9"><span class="section-number-4">2.0.9.</span> which languages are the most suitable to develop DSL? Lisp? Rust? or what?</h4>
+<p>
+Lisp (especially dialects like Clojure, Racket) is <b>most renowned for DSLs</b> due to its macro system, homoiconicity (code-as-data), and syntactic flexibility. Other suitable languages include:
+</p>
+
+<ol>
+<li><b>Rust</b>: Via procedural/declarative macros (less flexible than Lisp, but safe/performant).</li>
+<li><b>Ruby/Python</b>: Clean syntax and metaprogramming for internal DSLs (e.g., Rails routes).</li>
+<li><b>Scala</b>: Flexible syntax and strong typing for embedded DSLs.</li>
+<li><b>Prolog</b>: For logic/rule-based DSLs.</li>
+
+</ol>
+
+<p>
+<b>Choose Lisp</b> for maximum flexibility, <b>Rust</b> for performance-critical DSLs, or Ruby/Python for readability-focused internal DSLs.
+</p>
+</section>
+<section id="slide-2-0-10">
+<h4 id="2-0-10"><span class="section-number-4">2.0.10.</span> </h4>
+<p>
+does Rust have homoiconicity?
+</p>
+
+<p>
+No, Rust does not have <i>homoiconicity</i>. Homoiconicity is a property where code is represented as data in the same structure (e.g., Lisp&rsquo;s S-expressions). Rust&rsquo;s syntax is not homoiconic—it uses a more traditional, rigid syntax with separate representations for code and data. However, Rust compensates with powerful <i>macro systems</i> (e.g., procedural and declarative macros) for metaprogramming, which can approximate some DSL-like capabilities.
+</p>
+</section>
+<section id="slide-2-0-11">
+<h4 id="2-0-11"><span class="section-number-4">2.0.11.</span> in the context of compiler/compiling, what is a token?</h4>
+<p>
+In the context of compilers, a <i>token</i> is the smallest meaningful unit of a program, produced by the <i>lexical analyzer</i> (lexer) during the first phase of compilation. It represents a sequence of characters grouped into a single logical entity, such as:
+</p>
+
+<ul>
+<li><i>Keywords</i>: <code>if</code>, <code>else</code>, <code>while</code></li>
+<li><i>Identifiers</i>: Variable/function names (e.g., <code>x</code>, <code>calculateSum</code>)</li>
+<li><i>Literals</i>: Numbers, strings (e.g., <code>42</code>, <code>"hello"</code>)</li>
+<li><i>Operators</i>: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code></li>
+<li><i>Punctuation</i>: <code>;</code>, <code>(</code>, <code>)</code>, <code>{</code>, <code>}</code></li>
+
+</ul>
+
+<p>
+Tokens are the building blocks for the <i>parser</i>, which uses them to construct the program&rsquo;s syntax tree. For example, in the code <code>x = 42 + y;</code>, the lexer might produce tokens like:
+</p>
+<ul>
+<li><code>IDENTIFIER(x)</code></li>
+<li><code>ASSIGN(</code>)=</li>
+<li><code>NUMBER(42)</code></li>
+<li><code>PLUS(+)</code></li>
+<li><code>IDENTIFIER(y)</code></li>
+<li><code>SEMICOLON(;)</code></li>
+
+</ul>
+
+<p>
+Tokens abstract away raw text, simplifying the compiler&rsquo;s job of understanding and processing the program.
+</p>
+</section>
+<section id="slide-2-0-12">
+<h4 id="2-0-12"><span class="section-number-4">2.0.12.</span> can you contrast that with the meaning of token in the field of LLM?</h4>
+<p>
+In the context of <i>Large Language Models (LLMs)</i>, a <i>token</i> refers to a unit of text that the model processes, typically representing a word, subword, or even a single character. Tokens are used to break down input text into manageable pieces for the model to understand and generate. Key contrasts with compiler tokens:
+</p>
+
+<ol>
+<li><b>Granularity</b>:
+<ul>
+<li>Compiler tokens: Represent logical units (e.g., keywords, operators).</li>
+<li>LLM tokens: Can be whole words (e.g., <code>cat</code>), subwords (e.g., <code>unhappiness</code> → <code>un</code>, <code>happiness</code>), or characters (e.g., <code>a</code>, <code>b</code>).</li>
+
+</ul></li>
+
+<li><b>Purpose</b>:
+<ul>
+<li>Compiler tokens: Used for syntactic analysis and building a parse tree.</li>
+<li>LLM tokens: Used for encoding/decoding text into numerical representations (embeddings) for processing.</li>
+
+</ul></li>
+
+<li><b>Examples</b>:
+<ul>
+<li>Compiler: <code>x = 42 + y;</code> → tokens like <code>IDENTIFIER(x)</code>, <code>NUMBER(42)</code>.</li>
+<li>LLM: <code>"Hello, world!"</code> → tokens like <code>["Hello", ",", "world", "!"]</code> (depending on the tokenizer).</li>
+
+</ul></li>
+
+<li><b>Tokenization Process</b>:
+<ul>
+<li>Compiler: Lexical analysis based on strict grammar rules.</li>
+<li>LLM: Tokenization via algorithms like Byte Pair Encoding (BPE) or WordPiece, optimized for language modeling.</li>
+
+</ul></li>
+
+</ol>
+
+<p>
+In summary, compiler tokens are about <i>syntax</i>, while LLM tokens are about <i>text representation</i> for machine learning.
+</p>
+</section>
+<section id="slide-2-0-13">
+<h4 id="2-0-13"><span class="section-number-4">2.0.13.</span> what is an AST? ( syntax tree</h4>
+<p>
+An <i>Abstract Syntax Tree (AST)</i> is a tree-like data structure used in compilers and interpreters to represent the syntactic structure of source code. It abstracts away surface-level details (e.g., punctuation, whitespace) and focuses on the hierarchical relationships between language constructs. Key features:
+</p>
+
+<ol>
+<li><i>Nodes</i>: Represent language constructs (e.g., expressions, statements, declarations).</li>
+<li><i>Hierarchy</i>: Reflects the nested structure of the code (e.g., a function containing loops, which contain expressions).</li>
+<li><i>Abstraction</i>: Omits irrelevant details like semicolons or parentheses, focusing on meaning.</li>
+
+</ol>
+</section>
+<section id="slide-2-0-14">
+<h4 id="2-0-14"><span class="section-number-4">2.0.14.</span> Example:</h4>
+<p>
+For the code <code>x = 42 + y;</code>, the AST might look like:
+</p>
+<pre class="example">
+Assignment
+  ├── Identifier: x
+  └── BinaryExpression: +
+        ├── Literal: 42
+        └── Identifier: y
+</pre>
+</section>
+<section id="slide-2-0-15">
+<h4 id="2-0-15"><span class="section-number-4">2.0.15.</span> Use Cases:</h4>
+<ul>
+<li>Compilers: Used for semantic analysis, optimization, and code generation.</li>
+<li>Interpreters: Directly executed or transformed into bytecode.</li>
+<li>Static analysis: Detecting errors or vulnerabilities.</li>
+<li>Code transformations: Refactoring, transpilation (e.g., Babel for JavaScript).</li>
+
+</ul>
+
+<p>
+The AST is a critical intermediate representation between parsing and further compilation stages.
+</p>
+</section>
+<section id="slide-2-0-16">
+<h4 id="2-0-16"><span class="section-number-4">2.0.16.</span> please explain the relationship between AST and parsing</h4>
+<p>
+The relationship between an <i>Abstract Syntax Tree (AST)</i> and <i>parsing</i> is foundational in the compilation process:
+</p>
+
+<ol>
+<li><b>Parsing</b>:
+<ul>
+<li>The <i>parser</i> takes a sequence of tokens (produced by the lexer) and checks if they conform to the grammar rules of the programming language.</li>
+<li>It constructs a <i>parse tree</i> (also called a concrete syntax tree), which includes all syntactic details, such as parentheses, semicolons, and keywords.</li>
+
+</ul></li>
+
+<li><b>AST Construction</b>:
+<ul>
+<li>The parser then transforms the parse tree into an <i>AST</i> by stripping away unnecessary details (e.g., punctuation) and retaining only the essential structure of the program.</li>
+<li>The AST is a more abstract and compact representation, focusing on the logical relationships between language constructs.</li>
+
+</ul></li>
+
+</ol>
+</section>
+<section id="slide-2-1">
+<h3 id="2-1"><span class="section-number-3">2.1.</span> Example:</h3>
+<p>
+For the code <code>x = 42 + y;</code>:
+</p>
+<ul>
+<li><b>Parse Tree</b>: Includes tokens like <code>x</code>, <code>=, =42</code>, <code>+</code>, <code>y</code>, and <code>;</code>.</li>
+<li><p>
+<b>AST</b>: Represents the assignment as a hierarchy:
+</p>
+<pre class="example">
+  Assignment
+    ├── Identifier: x
+    └── BinaryExpression: +
+          ├── Literal: 42
+          └── Identifier: y
+</pre></li>
+
+<li><b>Relationship</b>:
+<ul>
+<li>Parsing is the process of analyzing the token stream and building the parse tree.</li>
+<li>The AST is the refined output of parsing, serving as the input for subsequent compilation stages (e.g., semantic analysis, optimization, code generation).</li>
+
+</ul></li>
+
+</ul>
+
+<p>
+In summary, parsing is the step that creates the AST, and the AST is the structured, abstract representation of the program&rsquo;s syntax.
+</p>
+</section>
+<section id="slide-2-1-1">
+<h4 id="2-1-1"><span class="section-number-4">2.1.1.</span> just looking at AST, it seems that is very suitable / congruent with LISP natural structure ( ex: (+ 2 3) ). is it fair to say that lisp lisp-based structure where the first element always represent an assignment or binanry expression is very similar to the way AST are structured?</h4>
+<p>
+Yes, that&rsquo;s a fair and insightful observation! The structure of Lisp code (e.g., <code>(+ 2 3)</code>) is inherently very similar to how ASTs are structured. Here&rsquo;s why:
+</p>
+
+<ol>
+<li><i>Hierarchical Representation</i>:
+<ul>
+<li>Lisp&rsquo;s syntax is based on nested parenthesized expressions, where the first element is an operator or function, and the rest are arguments.</li>
+<li>Similarly, ASTs represent code as a tree, where each node corresponds to an operation or construct, and its children are the operands or sub-expressions.</li>
+
+</ul></li>
+
+<li><i>First Element as Operator</i>:
+<ul>
+<li>In Lisp, the first element in a list (e.g., <code>+</code> in <code>(+ 2 3)</code>) defines the operation or function to be applied.</li>
+<li>In an AST, the root node of a subtree often represents the operation (e.g., a <code>BinaryExpression</code> node for <code>+</code>), and its children represent the operands.</li>
+
+</ul></li>
+
+<li><i>Natural Fit</i>:
+<ul>
+<li>Lisp&rsquo;s syntax is essentially a textual representation of an AST. For example, <code>(+ 2 3)</code> directly maps to an AST node for addition with two child nodes for the literals <code>2</code> and <code>3</code>.</li>
+<li>This makes Lisp a homoiconic language, where code and data share the same structure, and manipulating code (e.g., macros) is as natural as manipulating data.</li>
+
+</ul></li>
+
+</ol>
+</section>
+</section>
+<section>
+<section id="slide-3">
+<h2 id="3"><span class="section-number-2">3.</span> Example:</h2>
+<ul>
+<li>Lisp: <code>(+ (* 3 4) 5)</code></li>
+<li><p>
+AST:
+</p>
+<pre class="example">
+  BinaryExpression: +
+    ├── BinaryExpression: /
+    │     ├── Literal: 3
+    │     └── Literal: 4
+    └── Literal: 5
+</pre></li>
+
+</ul>
+
+<p>
+In summary, Lisp&rsquo;s syntax is highly congruent with ASTs because both are tree-like structures where the first element defines the operation or construct, and the rest are its arguments or children. This is one reason Lisp is often described as &ldquo;code as data&rdquo; and is particularly well-suited for metaprogramming.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-4">
+<h2 id="4"><span class="section-number-2">4.</span> give me an example of a lexer</h2>
+<p>
+A <i>lexer</i> (or tokenizer) is a component of a compiler or interpreter that breaks down source code into meaningful units called <i>tokens</i>. Each token represents a specific element of the language, such as keywords, identifiers, literals, or operators.
+</p>
+
+<p>
+Here’s an example of a simple lexer for a basic arithmetic expression:
+</p>
+</section>
+<section id="slide-4-0-1">
+<h4 id="4-0-1"><span class="section-number-4">4.0.1.</span> Input:</h4>
+<pre class="example">
+x = 42 + y;
+</pre>
+</section>
+<section id="slide-4-0-2">
+<h4 id="4-0-2"><span class="section-number-4">4.0.2.</span> Lexer Output:</h4>
+<pre class="example">
+[
+  { type: "Identifier", value: "x" },
+  { type: "Operator", value: "=" },
+  { type: "Number", value: "42" },
+  { type: "Operator", value: "+" },
+  { type: "Identifier", value: "y" },
+  { type: "Punctuation", value: ";" }
+]
+</pre>
+</section>
+<section id="slide-4-0-3">
+<h4 id="4-0-3"><span class="section-number-4">4.0.3.</span> Explanation:</h4>
+<ol>
+<li><b><code>x</code></b>: Recognized as an <code>Identifier</code> (variable name).</li>
+<li><b><code>=</code></b>: Recognized as an <code>Operator</code> (assignment).</li>
+<li><b><code>42</code></b>: Recognized as a <code>Number</code> (literal value).</li>
+<li><b><code>+</code></b>: Recognized as an <code>Operator</code> (addition).</li>
+<li><b><code>y</code></b>: Recognized as an <code>Identifier</code> (variable name).</li>
+<li><b><code>;</code></b>: Recognized as <code>Punctuation</code> (statement terminator).</li>
+
+</ol>
+</section>
+<section id="slide-4-0-4">
+<h4 id="4-0-4"><span class="section-number-4">4.0.4.</span> How the Lexer Works:</h4>
+<ol>
+<li>Scans the input character by character.</li>
+<li>Groups characters into tokens based on language rules (e.g., numbers, identifiers, operators).</li>
+<li>Ignores whitespace and comments (if applicable).</li>
+<li>Outputs a stream of tokens for the parser to use.</li>
+
+</ol>
+
+<p>
+This token stream is then passed to the parser, which builds the AST. The lexer is the first step in the compilation process, transforming raw text into structured data.
+</p>
+</section>
+<section id="slide-4-0-5">
+<h4 id="4-0-5"><span class="section-number-4">4.0.5.</span> in the context of a compiler I have heard of the notion of &ldquo;machine&rdquo;, I think i understand that there is an interpreter, a lexer, a parser that creates an AST, then a compiler, and finally a machine. what is a machine?</h4>
+<p>
+In the context of compilers, the term &ldquo;machine&rdquo; typically refers to the <i>target machine</i> or <i>execution environment</i> where the compiled code will run. It can mean different things depending on the context:
+</p>
+
+<ol>
+<li><i>Physical Machine</i>:
+<ul>
+<li>This refers to the actual hardware (e.g., a CPU) that executes the compiled machine code.</li>
+<li>The compiler generates low-level instructions (e.g., assembly or binary) specific to the target hardware architecture (e.g., x86, ARM).</li>
+
+</ul></li>
+
+<li><i>Virtual Machine</i>:
+<ul>
+<li>Some languages (e.g., Java, Python) compile to an intermediate representation (e.g., Java bytecode, Python bytecode) that runs on a <i>virtual machine</i> (e.g., JVM, Python VM).</li>
+<li>The virtual machine interprets or further compiles the intermediate code to execute it on the physical machine.</li>
+
+</ul></li>
+
+<li><i>Abstract Machine</i>:
+<ul>
+<li>In some theoretical or educational contexts, an &ldquo;abstract machine&rdquo; is a conceptual model of computation (e.g., a stack machine, register machine) used to describe how programs execute.</li>
+<li>Compilers may target such abstract machines for simplicity or portability.</li>
+
+</ul></li>
+
+</ol>
+</section>
+<section id="slide-4-1">
+<h3 id="4-1"><span class="section-number-3">4.1.</span> Example Workflow:</h3>
+<ol>
+<li><i>Source Code</i>: Written by the programmer.</li>
+<li><i>Lexer</i>: Breaks the code into tokens.</li>
+<li><i>Parser</i>: Builds an AST from the tokens.</li>
+<li><i>Compiler</i>: Transforms the AST into machine code (for a physical machine) or intermediate code (for a virtual machine).</li>
+<li><i>Machine</i>: Executes the compiled code.</li>
+
+</ol>
+
+<p>
+In summary, the &ldquo;machine&rdquo; is the final destination of the compilation process—the environment (physical, virtual, or abstract) where the program runs.
+</p>
+</section>
+<section id="slide-4-1-1">
+<h4 id="4-1-1"><span class="section-number-4">4.1.1.</span> help me build a DSL using lisp racket</h4>
+<p>
+To build a Domain-Specific Language (DSL) in Racket, follow these steps:
+</p>
+
+<ol>
+<li><b>Define the Syntax</b>: Use <code>#lang racket</code> and define your DSL&rsquo;s syntax using <code>define-syntax</code> or <code>syntax-rules</code>.</li>
+
+<li><b>Create Parsers</b>: Use Racket&rsquo;s parsing tools like <code>parser-tools</code> or <code>brag</code> to parse input into your DSL&rsquo;s abstract syntax tree (AST).</li>
+
+<li><b>Implement Semantics</b>: Write functions to interpret or compile the AST into executable code.</li>
+
+<li><b>Provide an API</b>: Expose your DSL to users with a clean interface.</li>
+
+</ol>
+
+<p>
+Here’s a simple example of a DSL for arithmetic expressions:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-racket">
+<span style="color: #51afef;">(</span><span style="color: #51afef;">define-syntax-rule</span> <span style="color: #c678dd;">(</span><span style="color: #c678dd;">add</span> x y<span style="color: #c678dd;">)</span> <span style="color: #c678dd;">(</span><span style="color: #c678dd;">+</span> x y<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+<span style="color: #51afef;">(</span><span style="color: #51afef;">define-syntax-rule</span> <span style="color: #c678dd;">(</span><span style="color: #c678dd;">mul</span> x y<span style="color: #c678dd;">)</span> <span style="color: #c678dd;">(</span><span style="color: #c678dd;">*</span> x y<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+
+<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Example usage</span>
+<span style="color: #51afef;">(</span>add <span style="color: #da8548; font-weight: bold;">3</span> <span style="color: #c678dd;">(</span>mul <span style="color: #da8548; font-weight: bold;">4</span> <span style="color: #da8548; font-weight: bold;">5</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">=&gt; 23</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-racket"><span style="color: #51afef;">(</span><span style="color: #51afef;">define</span> <span style="color: #dcaeea;">my-language</span> <span style="color: #a9a1e1;">'English</span><span style="color: #51afef;">)</span>
+
+<span style="color: #51afef;">(</span><span style="color: #51afef;">define</span> <span style="color: #dcaeea;">translations</span>
+  #hash<span style="color: #c678dd;">(</span><span style="color: #98be65;">[</span>Chinese . <span style="color: #98be65;">"&#20320;&#22909; &#19990;&#30028;"</span><span style="color: #98be65;">]</span>
+        <span style="color: #98be65;">[</span>English . <span style="color: #98be65;">"Hello world"</span><span style="color: #98be65;">]</span>
+        <span style="color: #98be65;">[</span>French . <span style="color: #98be65;">"Bonjour le monde"</span><span style="color: #98be65;">]</span>
+        <span style="color: #98be65;">[</span>German . <span style="color: #98be65;">"Hallo Welt"</span><span style="color: #98be65;">]</span>
+        <span style="color: #98be65;">[</span>Greek . <span style="color: #98be65;">"&#915;&#949;&#953;&#940; &#963;&#959;&#965;, &#954;&#972;&#963;&#956;&#949;"</span><span style="color: #98be65;">]</span>
+        <span style="color: #98be65;">[</span>Portuguese . <span style="color: #98be65;">"Ol&#225; mundo"</span><span style="color: #98be65;">]</span>
+        <span style="color: #98be65;">[</span>Spanish . <span style="color: #98be65;">"Hola mundo"</span><span style="color: #98be65;">]</span>
+        <span style="color: #98be65;">[</span>Thai . <span style="color: #98be65;">"&#3626;&#3623;&#3633;&#3626;&#3604;&#3637;&#3594;&#3634;&#3623;&#3650;&#3621;&#3585;"</span><span style="color: #98be65;">]</span>
+        <span style="color: #98be65;">[</span>Turkish . <span style="color: #98be65;">"Merhaba D&#252;nya"</span><span style="color: #98be65;">]</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+
+<span style="color: #51afef;">(</span><span style="color: #51afef;">define</span> <span style="color: #dcaeea;">my-hello-world</span>
+  <span style="color: #c678dd;">(</span><span style="color: #c678dd;">hash-ref</span> translations my-language
+            <span style="color: #98be65;">"hello world"</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+
+<span style="color: #51afef;">(</span>message-box <span style="color: #98be65;">""</span> my-hello-world<span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+<p>
+For more complex DSLs, consider using <code>#lang</code> to create a custom language. Start with <code>#lang s-exp</code> and extend it with your DSL&rsquo;s features.
+</p>
+
+<p>
+For further reading, check Racket&rsquo;s documentation on [macros](<a href="https://docs.racket-lang.org/guide/macros.html">https://docs.racket-lang.org/guide/macros.html</a>) and [creating languages](<a href="https://docs.racket-lang.org/guide/languages.html">https://docs.racket-lang.org/guide/languages.html</a>).
+</p>
+</section>
+<section id="slide-4-1-2">
+<h4 id="4-1-2"><span class="section-number-4">4.1.2.</span> <b>*</b></h4>
+<p>
+what is a symbol in lisp? how would you explain symbolic programming?
+</p>
+
+
+<p>
+In Lisp, a <b>symbol</b> is a unique, named entity that can represent variables, functions, or other data. It has a name (e.g., <code>foo</code>) and can hold values, properties, or function definitions. Symbols are interned in a symbol table, ensuring uniqueness.
+</p>
+
+<p>
+<b>Symbolic programming</b> refers to manipulating symbols and expressions (often as data) rather than just raw values. Lisp treats code as data, enabling metaprogramming (e.g., macros) and dynamic manipulation of programs. For example, <code>(quote x)</code> or <code>'x</code> represents the symbol <code>x</code> itself, not its value. This allows programs to reason about and transform code structures symbolically.
+</p>
+</section>
+<section id="slide-4-1-3">
+<h4 id="4-1-3"><span class="section-number-4">4.1.3.</span> which lisp dialect is the most appropriate for the development of DSL?</h4>
+<p>
+For DSL development, <b>Racket</b> is the most appropriate Lisp dialect because:
+</p>
+
+<ol>
+<li><b>Language-Oriented Programming</b>: Racket is designed for creating DSLs. It provides tools like <code>#lang</code> to define custom languages with minimal effort.</li>
+<li><b>Macros</b>: Racket&rsquo;s macro system is powerful and hygienic, making it easier to define DSL syntax without unintended side effects.</li>
+<li><b>Libraries</b>: It has extensive libraries for parsing, syntax manipulation, and language creation (e.g., <code>brag</code> for parsing, <code>syntax/parse</code> for macros).</li>
+<li><b>Documentation</b>: Racket&rsquo;s documentation is excellent, with tutorials and guides specifically for DSL development.</li>
+<li><b>Ecosystem</b>: Racket&rsquo;s IDE (DrRacket) and REPL are tailored for interactive DSL development.</li>
+
+</ol>
+
+<p>
+Other Lisp dialects like <b>Common Lisp</b> or <b>Clojure</b> are also capable, but Racket&rsquo;s focus on language creation makes it the best choice for DSLs.
+</p>
+</section>
+<section id="slide-4-1-4">
+<h4 id="4-1-4"><span class="section-number-4">4.1.4.</span> I want to know about DrRacket</h4>
+<p>
+DrRacket is an integrated development environment (IDE) for the Racket programming language. It is designed to support both beginners and advanced programmers, offering features like syntax highlighting, debugging, and a REPL (Read-Eval-Print Loop). DrRacket is particularly popular in educational settings for teaching programming concepts due to its simplicity and powerful tools for interactive learning.
+</p>
+</section>
+<section id="slide-4-1-5">
+<h4 id="4-1-5"><span class="section-number-4">4.1.5.</span> <b>*</b> is it possible to integrate DrRacket into emacs?</h4>
+<p>
+Yes, it is possible to integrate DrRacket into Emacs, though it requires some setup. Here are the main approaches:
+</p>
+
+<ol>
+<li><b>Geiser</b>: Geiser is an Emacs package for interactive Racket development. It provides a REPL, syntax highlighting, and integration with Racket&rsquo;s tools. Install it via <code>M-x package-install RET geiser RET</code>.</li>
+
+<li><b>Racket Mode</b>: Use the <code>racket-mode</code> package, which provides features like REPL integration, syntax checking, and debugging. Install it via <code>M-x package-install RET racket-mode RET</code>.</li>
+
+<li><b>Shell Integration</b>: Run DrRacket or Racket REPL in an Emacs shell buffer (<code>M-x shell</code> or <code>M-x term</code>) for basic interaction.</li>
+
+</ol>
+
+<p>
+While DrRacket itself isn&rsquo;t directly embeddable in Emacs, these tools provide similar functionality within Emacs.
+</p>
+
+<p>
+<b>*</b>
+I would like to understand what people say when they talk about the &ldquo;x86 level&rdquo;.
+</p>
+
+<p>
+The &ldquo;x86 level&rdquo; refers to the architecture of CPUs based on the x86 instruction set, which originated with Intel&rsquo;s 8086 processor. It encompasses a family of processors, including:
+</p>
+
+<ol>
+<li><i>16-bit</i>: 8086, 80286 (early x86 processors).</li>
+<li><i>32-bit</i>: 80386, 80486, and later Pentium processors (x86-32 or IA-32).</li>
+<li><i>64-bit</i>: AMD64 (x86-64), which extended the x86 architecture to 64-bit while maintaining backward compatibility.</li>
+
+</ol>
+
+<p>
+When people refer to the &ldquo;x86 level,&rdquo; they often mean:
+</p>
+<ul>
+<li>The instruction set architecture (ISA) used by these processors.</li>
+<li>The compatibility and performance characteristics of software running on x86 hardware.</li>
+<li>The distinction between x86 and other architectures (e.g., ARM, RISC-V).</li>
+
+</ul>
+
+<p>
+It is a foundational concept in computing, especially for low-level programming, operating systems, and performance optimization.
+</p>
+</section>
+<section id="slide-4-1-6">
+<h4 id="4-1-6"><span class="section-number-4">4.1.6.</span> is it fair to understand that expression as &ldquo;machine level&rdquo; ?</h4>
+<p>
+Yes, it is fair to understand &ldquo;x86 level&rdquo; as referring to the &ldquo;machine level&rdquo; in the context of x86 architecture. The &ldquo;machine level&rdquo; typically refers to low-level operations directly executed by the CPU, such as:
+</p>
+
+<ul>
+<li>Machine code (binary instructions).</li>
+<li>Assembly language (human-readable representation of machine code).</li>
+<li>CPU registers, memory addressing, and hardware-specific operations.</li>
+
+</ul>
+
+<p>
+When discussing &ldquo;x86 level,&rdquo; it often implies working at or near the machine level, focusing on the specifics of the x86 instruction set and hardware behavior. However, &ldquo;machine level&rdquo; is a broader term that applies to any CPU architecture, not just x86.
+</p>
+</section>
+<section id="slide-4-1-7">
+<h4 id="4-1-7"><span class="section-number-4">4.1.7.</span> please list synonyms to "machine level</h4>
+<p>
+Here are some synonyms or related terms for &ldquo;machine level&rdquo;:
+</p>
+
+<ol>
+<li><b>Low-level</b>: Refers to programming or operations close to the hardware.</li>
+<li><b>Assembly level</b>: Specifically refers to programming in assembly language.</li>
+<li><b>Hardware level</b>: Direct interaction with hardware components.</li>
+<li><b>Binary level</b>: Working with raw binary instructions (machine code).</li>
+<li><b>Native level</b>: Operations executed directly by the CPU without abstraction.</li>
+<li><b>Instruction set level</b>: Refers to the specific set of instructions a CPU can execute.</li>
+<li><b>CPU level</b>: Directly related to the CPU&rsquo;s operations and registers.</li>
+<li><b>Microarchitecture level</b>: Pertains to the internal design and implementation of the CPU.</li>
+
+</ol>
+
+<p>
+These terms are often used interchangeably depending on the context.
+</p>
+</section>
+<section id="slide-4-1-8">
+<h4 id="4-1-8"><span class="section-number-4">4.1.8.</span> I want to express that level and those ideas in Chinese. Please generate an answer in mandarin chinese. thank you</h4>
+<p>
+当然可以！以下是“machine level”及其相关概念的中文表达：
+</p>
+
+<ol>
+<li>*底层*：指接近硬件的编程或操作。</li>
+<li>*汇编层*：特指使用汇编语言进行编程。</li>
+<li>*硬件层*：直接与硬件组件交互的层面。</li>
+<li>*二进制层*：处理原始二进制指令（机器码）的层面。</li>
+<li>*原生层*：由CPU直接执行的操作，没有抽象层。</li>
+<li>*指令集层*：指CPU能够执行的特定指令集。</li>
+<li>*CPU层*：与CPU的操作和寄存器直接相关的层面。</li>
+<li>*微架构层*：涉及CPU内部设计和实现的层面。</li>
+
+</ol>
+
+<p>
+这些术语根据上下文可以互换使用，表达的都是与机器底层操作相关的概念。
+</p>
+</section>
+<section id="slide-4-1-9">
+<h4 id="4-1-9"><span class="section-number-4">4.1.9.</span> regenerate, adding tonal pinyin for the terms that are important</h4>
+<p>
+好的！以下是“machine level”及其相关概念的中文表达，并附上重要术语的拼音和声调：
+</p>
+
+<ol>
+<li><i>底层</i> (dǐ céng)：指接近硬件的编程或操作。</li>
+<li><i>汇编层</i> (huì biān céng)：特指使用汇编语言进行编程。</li>
+<li><i>硬件层</i> (yìng jiàn céng)：直接与硬件组件交互的层面。</li>
+<li><i>二进制层</i> (èr jìn zhì céng)：处理原始二进制指令（机器码）的层面。</li>
+<li><i>原生层</i> (yuán shēng céng)：由CPU直接执行的操作，没有抽象层。</li>
+<li><i>指令集层</i> (zhǐ lìng jí céng)：指CPU能够执行的特定指令集。</li>
+<li><i>CPU层</i> (CPU céng)：与CPU的操作和寄存器直接相关的层面。</li>
+<li><i>微架构层</i> (wēi jià gòu céng)：涉及CPU内部设计和实现的层面。</li>
+
+</ol>
+
+<p>
+这些术语根据上下文可以互换使用，表达的都是与机器底层操作相关的概念。
+</p>
+</section>
+<section id="slide-4-1-10">
+<h4 id="4-1-10"><span class="section-number-4">4.1.10.</span> I want to understand compilers, and given that context I have hears about uniquify pass. can you tell me about that?</h4>
+<p>
+The <b>uniquify pass</b> is a phase in some compilers, particularly in the context of functional programming languages like Racket or Scheme. Its purpose is to ensure that all variable names in the program are unique, even if they were originally the same in different scopes. This is important for avoiding name conflicts during later stages of compilation, such as optimization or code generation.
+</p>
+</section>
+<section id="slide-4-1-11">
+<h4 id="4-1-11"><span class="section-number-4">4.1.11.</span> Why is it needed?</h4>
+<p>
+In languages with lexical scoping, variables in different scopes can share the same name. For example:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span style="color: #51afef;">(</span><span style="color: #51afef;">let</span> <span style="color: #c678dd;">(</span><span style="color: #98be65;">(</span>x <span style="color: #da8548; font-weight: bold;">1</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">let</span> <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">(</span>x <span style="color: #da8548; font-weight: bold;">2</span><span style="color: #a9a1e1;">)</span><span style="color: #98be65;">)</span>
+    <span style="color: #98be65;">(</span>+ x x<span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+<p>
+Here, the two <code>x</code> variables are distinct but share the same name. The uniquify pass renames them to something like <code>x1</code> and <code>x2</code> to avoid ambiguity.
+</p>
+</section>
+<section id="slide-4-1-12">
+<h4 id="4-1-12"><span class="section-number-4">4.1.12.</span> How does it work?</h4>
+<p>
+The pass traverses the program&rsquo;s abstract syntax tree (AST) and renames variables to ensure uniqueness. For example:
+</p>
+<ul>
+<li>Input: <code>(let ((x 1)) (let ((x 2)) (+ x x)))</code></li>
+<li>Output: <code>(let ((x1 1)) (let ((x2 2)) (+ x2 x2)))</code></li>
+
+</ul>
+</section>
+<section id="slide-4-1-13">
+<h4 id="4-1-13"><span class="section-number-4">4.1.13.</span> Why is it important for compilers?</h4>
+<ol>
+<li><b>Avoids name clashes</b>: Ensures no two variables conflict, even if they share the same name.</li>
+<li><b>Simplifies later passes</b>: Makes transformations like optimization or code generation easier by eliminating ambiguity.</li>
+<li><b>Supports hygiene</b>: In macro systems, it helps maintain lexical scoping rules.</li>
+
+</ol>
+
+<p>
+If you&rsquo;re studying compilers, understanding the uniquify pass is a good step toward grasping how compilers handle scoping and variable binding.
+</p>
+</section>
+<section id="slide-4-1-14">
+<h4 id="4-1-14"><span class="section-number-4">4.1.14.</span> what about the explicate control pass?</h4>
+<p>
+The <i>explicate control pass</i> is another important phase in compilers, particularly in functional programming languages like Racket or Scheme. Its goal is to transform high-level, nested expressions (like <code>let</code> or <code>if</code>) into a sequence of simpler, imperative-style instructions. This makes the code easier to translate into lower-level representations, such as assembly or intermediate languages.
+</p>
+</section>
+<section id="slide-4-2">
+<h3 id="4-2"><span class="section-number-3">4.2.</span> Why is it needed?</h3>
+<p>
+Functional languages often use nested expressions, which can be complex to optimize or translate directly. The explicate control pass flattens these structures into a more linear, control-flow-based form.
+</p>
+</section>
+<section id="slide-4-3">
+<h3 id="4-3"><span class="section-number-3">4.3.</span> How does it work?</h3>
+<p>
+The pass converts nested expressions into a series of basic blocks connected by jumps. For example:
+</p>
+<ul>
+<li><p>
+Input:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scheme">  <span style="color: #51afef;">(</span><span style="color: #51afef;">if</span> <span style="color: #c678dd;">(</span>&gt; x <span style="color: #da8548; font-weight: bold;">0</span><span style="color: #c678dd;">)</span>
+      <span style="color: #c678dd;">(</span>+ x <span style="color: #da8548; font-weight: bold;">1</span><span style="color: #c678dd;">)</span>
+      <span style="color: #c678dd;">(</span>- x <span style="color: #da8548; font-weight: bold;">1</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div></li>
+<li><p>
+Output:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scheme">  <span style="color: #51afef;">(</span><span style="color: #51afef;">if</span> <span style="color: #c678dd;">(</span>&gt; x <span style="color: #da8548; font-weight: bold;">0</span><span style="color: #c678dd;">)</span>
+      <span style="color: #c678dd;">(</span>goto then-block<span style="color: #c678dd;">)</span>
+      <span style="color: #c678dd;">(</span>goto else-block<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+  <span style="color: #51afef;">(</span>then-block<span style="color: #51afef;">)</span>
+  <span style="color: #51afef;">(</span><span style="color: #51afef;">set!</span> result <span style="color: #c678dd;">(</span>+ x <span style="color: #da8548; font-weight: bold;">1</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+  <span style="color: #51afef;">(</span>goto end-block<span style="color: #51afef;">)</span>
+  <span style="color: #51afef;">(</span>else-block<span style="color: #51afef;">)</span>
+  <span style="color: #51afef;">(</span><span style="color: #51afef;">set!</span> result <span style="color: #c678dd;">(</span>- x <span style="color: #da8548; font-weight: bold;">1</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+  <span style="color: #51afef;">(</span>goto end-block<span style="color: #51afef;">)</span>
+  <span style="color: #51afef;">(</span>end-block<span style="color: #51afef;">)</span>
+</pre>
+</div></li>
+
+</ul>
+</section>
+<section id="slide-4-4">
+<h3 id="4-4"><span class="section-number-3">4.4.</span> Key transformations:</h3>
+<ol>
+<li><i>Flattening</i>: Breaks down nested expressions into simpler, sequential steps.</li>
+<li><i>Control flow</i>: Introduces labels and jumps to manage branching (e.g., <code>if</code> statements).</li>
+<li><i>Temporary variables</i>: Uses temporary variables to store intermediate results.</li>
+
+</ol>
+</section>
+<section id="slide-4-5">
+<h3 id="4-5"><span class="section-number-3">4.5.</span> Why is it important for compilers?</h3>
+<ol>
+<li><i>Simplifies code generation</i>: Makes it easier to translate high-level code into low-level instructions.</li>
+<li><i>Enables optimization</i>: Linearized control flow is easier to analyze and optimize.</li>
+<li><i>Prepares for lower-level representation</i>: Bridges the gap between functional and imperative paradigms.</li>
+
+</ol>
+
+<p>
+If you&rsquo;re studying compilers, the explicate control pass is a key step in understanding how high-level constructs are transformed into a form suitable for further compilation.
+</p>
+
+<p>
+<b>*</b>
+</p>
+</section>
+</section>
+<section>
+<section id="slide-5">
+<h2 id="5"><span class="section-number-2">5.</span> can you tell me about deepseek, the chinese ai company?</h2>
+<p>
+DeepSeek Artificial Intelligence Co., Ltd. (深度求索人工智能基础技术研究有限公司), or simply <b>DeepSeek</b>, is a Chinese company focused on making AGI (Artificial General Intelligence) a reality. Established in 2023, the company is dedicated to research and development in the field of AGI, striving to create AI systems that can perform any intellectual task that a human being can do.
+</p>
+</section>
+<section id="slide-5-0-1">
+<h4 id="5-0-1"><span class="section-number-4">5.0.1.</span> Key Areas of Focus:</h4>
+<ol>
+<li><b>AGI Research</b>: DeepSeek aims to develop AI systems with general-purpose intelligence, capable of reasoning, learning, and adapting across diverse domains.</li>
+<li><b>AI Applications</b>: The company explores practical applications of AI in areas like natural language processing, computer vision, and robotics.</li>
+<li><b>Ethical AI</b>: DeepSeek emphasizes the importance of ethical considerations in AI development, ensuring that their technologies are safe and beneficial for society.</li>
+
+</ol>
+</section>
+<section id="slide-5-0-2">
+<h4 id="5-0-2"><span class="section-number-4">5.0.2.</span> Notable Projects:</h4>
+<ul>
+<li><b>DeepSeek Chat</b>: A conversational AI system designed to provide intelligent and context-aware interactions.</li>
+<li><b>AI for Scientific Research</b>: DeepSeek collaborates with research institutions to apply AI in fields like healthcare, climate modeling, and materials science.</li>
+
+</ul>
+</section>
+<section id="slide-5-0-3">
+<h4 id="5-0-3"><span class="section-number-4">5.0.3.</span> Location and Team:</h4>
+<ul>
+<li><b>Headquarters</b>: Hangzhou, China.</li>
+<li><b>Team</b>: Composed of leading researchers and engineers in AI, many with backgrounds in top academic institutions and tech companies.</li>
+
+</ul>
+</section>
+<section id="slide-5-0-4">
+<h4 id="5-0-4"><span class="section-number-4">5.0.4.</span> Vision:</h4>
+<p>
+DeepSeek envisions a future where AGI enhances human capabilities and solves complex global challenges. Their mission is to push the boundaries of AI research while ensuring its alignment with human values.
+</p>
+
+<p>
+If you&rsquo;re interested in AGI or AI advancements, DeepSeek is a company to watch in the rapidly evolving AI landscape.
+</p>
+</section>
+<section id="slide-5-0-5">
+<h4 id="5-0-5"><span class="section-number-4">5.0.5.</span> which chinese companies are doing similar things to deepseek?</h4>
+<p>
+Several Chinese companies are actively working on advanced AI research and development, similar to DeepSeek. Here are some notable ones:
+</p>
+
+<ol>
+<li><b>Baidu</b>:
+<ul>
+<li>Focus: AI, natural language processing, autonomous driving.</li>
+<li>Key Projects: Baidu Brain, Apollo (autonomous driving platform), ERNIE (NLP model).</li>
+
+</ul></li>
+
+<li><b>Alibaba</b>:
+<ul>
+<li>Focus: AI for e-commerce, cloud computing, natural language processing.</li>
+<li>Key Projects: Alibaba Cloud, DAMO Academy (AI research lab), AliGenie (voice assistant).</li>
+
+</ul></li>
+
+<li><b>Tencent</b>:
+<ul>
+<li>Focus: AI for gaming, social media, healthcare.</li>
+<li>Key Projects: Tencent AI Lab, WeChat AI, medical imaging AI.</li>
+
+</ul></li>
+
+<li><b>SenseTime</b>:
+<ul>
+<li>Focus: Computer vision, facial recognition, AI for smart cities.</li>
+<li>Key Projects: SenseFoundry (AI platform for urban management), SenseMARS (mixed reality platform).</li>
+
+</ul></li>
+
+<li><b>iFlytek</b>:
+<ul>
+<li>Focus: Speech recognition, natural language processing, AI for education.</li>
+<li>Key Projects: iFlytek Input, AI-powered educational tools, voice assistants.</li>
+
+</ul></li>
+
+<li><b>Megvii</b>:
+<ul>
+<li>Focus: Computer vision, facial recognition, AI for IoT.</li>
+<li>Key Projects: Face++ (facial recognition platform), Brain++ (AI platform).</li>
+
+</ul></li>
+
+<li><b>Huawei</b>:
+<ul>
+<li>Focus: AI for telecommunications, cloud computing, AI chips.</li>
+<li>Key Projects: Ascend AI processors, Huawei Cloud, AI research in its Noah&rsquo;s Ark Lab.</li>
+
+</ul></li>
+
+</ol>
+
+<p>
+These companies are at the forefront of AI innovation in China, contributing to advancements in various domains and pushing the boundaries of what AI can achieve.
+</p>
+</section>
+<section id="slide-5-0-6">
+<h4 id="5-0-6"><span class="section-number-4">5.0.6.</span> can you give me a list of company working on AI and LLM, and located in Beijing or Shenzhen?</h4>
+<p>
+Here’s a list of notable companies working on AI and large language models (LLMs) located in <b>Beijing</b> or <b>Shenzhen</b>:
+</p>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-5-0-7">
+<h4 id="5-0-7"><span class="section-number-4">5.0.7.</span> <b>Beijing</b>:</h4>
+<ol>
+<li><b>Baidu</b>:
+<ul>
+<li>Focus: AI, NLP, autonomous driving, LLMs.</li>
+<li>Key Projects: ERNIE (LLM), Baidu Brain, Apollo (autonomous driving).</li>
+
+</ul></li>
+
+<li><b>ByteDance</b>:
+<ul>
+<li>Focus: AI for content recommendation, NLP, LLMs.</li>
+<li>Key Projects: TikTok recommendation algorithms, AI-powered content creation tools.</li>
+
+</ul></li>
+
+<li><b>Megvii</b>:
+<ul>
+<li>Focus: Computer vision, facial recognition, AI for IoT.</li>
+<li>Key Projects: Face++ (facial recognition), Brain++ (AI platform).</li>
+
+</ul></li>
+
+<li><b>DeepSeek</b>:
+<ul>
+<li>Focus: AGI, LLMs, AI research.</li>
+<li>Key Projects: DeepSeek Chat, AI for scientific research.</li>
+
+</ul></li>
+
+<li><b>Horizon Robotics</b>:
+<ul>
+<li>Focus: AI chips, edge AI, autonomous driving.</li>
+<li>Key Projects: AI processors for smart devices and vehicles.</li>
+
+</ul></li>
+
+<li><b>iFlytek</b>:
+<ul>
+<li>Focus: Speech recognition, NLP, AI for education.</li>
+<li>Key Projects: iFlytek Input, AI-powered educational tools.</li>
+
+</ul></li>
+
+<li><b>Biren Technology</b>:
+<ul>
+<li>Focus: AI chips, GPU development for AI workloads.</li>
+<li>Key Projects: GPUs for AI training and inference.</li>
+
+</ul></li>
+
+</ol>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-5-0-8">
+<h4 id="5-0-8"><span class="section-number-4">5.0.8.</span> <b>Shenzhen</b>:</h4>
+<ol>
+<li><b>Tencent</b>:
+<ul>
+<li>Focus: AI for gaming, social media, NLP, LLMs.</li>
+<li>Key Projects: WeChat AI, Tencent AI Lab, Hunyuan (LLM).</li>
+
+</ul></li>
+
+<li><b>Huawei</b>:
+<ul>
+<li>Focus: AI for telecommunications, cloud computing, AI chips.</li>
+<li>Key Projects: Ascend AI processors, Huawei Cloud, Pangu (LLM).</li>
+
+</ul></li>
+
+<li><b>DJI</b>:
+<ul>
+<li>Focus: AI for drones, computer vision, robotics.</li>
+<li>Key Projects: AI-powered drone navigation and imaging.</li>
+
+</ul></li>
+
+<li><b>SenseTime</b>:
+<ul>
+<li>Focus: Computer vision, facial recognition, AI for smart cities.</li>
+<li>Key Projects: SenseFoundry, SenseMARS.</li>
+
+</ul></li>
+
+<li><b>CloudWalk</b>:
+<ul>
+<li>Focus: Facial recognition, AI for finance and security.</li>
+<li>Key Projects: AI-powered identity verification systems.</li>
+
+</ul></li>
+
+<li><b>UBTech</b>:
+<ul>
+<li>Focus: AI for robotics, humanoid robots, NLP.</li>
+<li>Key Projects: AI-powered service robots.</li>
+
+</ul></li>
+
+<li><b>Zhipu AI</b>:
+<ul>
+<li>Focus: LLMs, NLP, AI research.</li>
+<li>Key Projects: GLM (General Language Model).</li>
+
+</ul></li>
+
+</ol>
+
+<p>
+&#x2014;
+</p>
+
+<p>
+These companies are leading the charge in AI and LLM development in China, with significant contributions to both research and practical applications.
+</p>
+</section>
+<section id="slide-5-0-9">
+<h4 id="5-0-9"><span class="section-number-4">5.0.9.</span> can you explain how the limitations of access to CUDA gpu chips ( due to embargo from the US ) impacted deepseek development approach?</h4>
+<p>
+The U.S. embargo on advanced CUDA-capable GPUs, particularly those from NVIDIA (e.g., A100, H100), has significantly impacted AI development in China, including companies like <i>DeepSeek</i>. Here’s how these limitations have influenced DeepSeek&rsquo;s development approach:
+</p>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-5-0-10">
+<h4 id="5-0-10"><span class="section-number-4">5.0.10.</span> 1. <b>Shift to Alternative Hardware</b>:</h4>
+<ul>
+<li><b>Domestic GPUs</b>: DeepSeek has likely turned to Chinese-made GPUs, such as those from <i>Biren Technology</i> or <i>Moore Threads</i>, which are designed to compete with NVIDIA&rsquo;s offerings. These GPUs may not match NVIDIA&rsquo;s performance but are increasingly viable for AI workloads.</li>
+<li><b>AI Accelerators</b>: Companies like <i>Huawei</i> (with Ascend chips) and <i>Cambricon</i> provide AI-specific accelerators that can be used for training and inference, reducing reliance on CUDA.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-5-0-11">
+<h4 id="5-0-11"><span class="section-number-4">5.0.11.</span> 2. <b>Optimization for Non-CUDA Frameworks</b>:</h4>
+<ul>
+<li>DeepSeek may have adapted its AI frameworks to work with non-CUDA ecosystems, such as Huawei&rsquo;s <i>MindSpore</i> or open-source alternatives like <i>PyTorch</i> with ROCm (AMD&rsquo;s open software platform).</li>
+<li>This requires significant engineering effort to optimize models for different hardware architectures.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-5-0-12">
+<h4 id="5-0-12"><span class="section-number-4">5.0.12.</span> 3. <b>Focus on Efficiency</b>:</h4>
+<ul>
+<li>With limited access to high-performance GPUs, DeepSeek likely prioritizes model efficiency, such as:
+<ul>
+<li><b>Model Compression</b>: Techniques like quantization, pruning, and distillation to reduce computational requirements.</li>
+<li><b>Sparse Training</b>: Leveraging sparsity in neural networks to reduce resource usage.</li>
+<li><b>Smaller Models</b>: Developing smaller, more efficient LLMs that can achieve competitive performance with fewer resources.</li>
+
+</ul></li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-5-0-13">
+<h4 id="5-0-13"><span class="section-number-4">5.0.13.</span> 4. <b>Distributed Computing</b>:</h4>
+<ul>
+<li>DeepSeek may rely more on distributed computing across clusters of less powerful GPUs or CPUs to compensate for the lack of high-end GPUs.</li>
+<li>This approach requires robust infrastructure and software to manage distributed training effectively.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-5-0-14">
+<h4 id="5-0-14"><span class="section-number-4">5.0.14.</span> 5. <b>Collaboration with Domestic Tech Giants</b>:</h4>
+<ul>
+<li>DeepSeek could partner with companies like <i>Huawei</i>, <i>Baidu</i>, or <i>Tencent</i>, which have invested heavily in domestic AI hardware and software ecosystems.</li>
+<li>These collaborations provide access to alternative resources and expertise.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-5-0-15">
+<h4 id="5-0-15"><span class="section-number-4">5.0.15.</span> 6. <b>Long-Term Investment in Domestic AI Ecosystem</b>:</h4>
+<ul>
+<li>The embargo has likely accelerated DeepSeek&rsquo;s investment in China&rsquo;s domestic AI ecosystem, including:
+<ul>
+<li>Developing proprietary AI chips or collaborating with local chipmakers.</li>
+<li>Contributing to open-source frameworks that are hardware-agnostic.</li>
+
+</ul></li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-5-0-16">
+<h4 id="5-0-16"><span class="section-number-4">5.0.16.</span> 7. <b>Impact on Research and Innovation</b>:</h4>
+<ul>
+<li>While the embargo poses challenges, it has also spurred innovation in China&rsquo;s AI industry, pushing companies like DeepSeek to explore new approaches and reduce dependency on foreign technology.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+
+<p>
+In summary, the embargo has forced DeepSeek to adapt by exploring alternative hardware, optimizing for non-CUDA frameworks, and focusing on efficiency and collaboration within China&rsquo;s growing AI ecosystem. While challenging, these adaptations may lead to greater self-reliance and innovation in the long term.
+</p>
+</section>
+<section id="slide-5-0-17">
+<h4 id="5-0-17"><span class="section-number-4">5.0.17.</span> what is ptx?</h4>
+<p>
+PTX (Parallel Thread Execution) is a low-level, assembly-like programming language used by NVIDIA for programming its GPUs. It serves as an intermediate representation (IR) between high-level languages (like CUDA C/C++) and the machine code executed by NVIDIA GPUs. Here’s a concise overview:
+</p>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-5-0-18">
+<h4 id="5-0-18"><span class="section-number-4">5.0.18.</span> MoE based architecture.</h4>
+<p>
+Can you explain MoE mixture of experts, and the auxiliary loss, sparsity.
+</p>
+
+
+<p>
+Mixture of Experts (MoE) is a neural network architecture that combines multiple specialized sub-networks (called &ldquo;experts&rdquo;) with a gating mechanism to dynamically route inputs to the most relevant experts. Here&rsquo;s a concise explanation:
+</p>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-5-1">
+<h3 id="5-1"><span class="section-number-3">5.1.</span> 1. <i>Core Idea</i>:</h3>
+<ul>
+<li>Instead of processing all inputs through a single large model, MoE divides the task among smaller, specialized experts.</li>
+<li>A gating network decides which expert(s) to activate for each input, enabling efficient computation and scalability.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-5-2">
+<h3 id="5-2"><span class="section-number-3">5.2.</span> 2. <i>Key Components</i>:</h3>
+<ul>
+<li><b>Experts</b>: Smaller neural networks, each specializing in a specific subset of tasks or data.</li>
+<li><b>Gating Network</b>: A lightweight network that assigns weights to experts based on the input, determining their contribution to the output.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-5-3">
+<h3 id="5-3"><span class="section-number-3">5.3.</span> 3. <i>Auxiliary Loss</i>:</h3>
+<ul>
+<li>MoE often uses an auxiliary loss to ensure balanced expert utilization and prevent over-reliance on a few experts.</li>
+<li>Common auxiliary losses include:
+<ul>
+<li><b>Load Balancing Loss</b>: Encourages equal usage of experts across batches.</li>
+<li><b>Expert Diversity Loss</b>: Promotes diversity in expert specialization.</li>
+
+</ul></li>
+<li>These losses are added to the main task loss during training.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-5-4">
+<h3 id="5-4"><span class="section-number-3">5.4.</span> 4. <i>Advantages</i>:</h3>
+<ul>
+<li><b>Scalability</b>: MoE scales efficiently by adding more experts without increasing computation per input.</li>
+<li><b>Specialization</b>: Experts can focus on specific patterns, improving model performance.</li>
+<li><b>Efficiency</b>: Only a subset of experts is activated per input, reducing computational cost.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-5-5">
+<h3 id="5-5"><span class="section-number-3">5.5.</span> 5. <i>Challenges</i>:</h3>
+<ul>
+<li><b>Routing Complexity</b>: Designing an effective gating mechanism is non-trivial.</li>
+<li><b>Training Stability</b>: Auxiliary losses and dynamic routing can make training more challenging.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+
+<p>
+MoE is widely used in large-scale models, such as Google&rsquo;s Switch Transformers, to handle massive datasets and tasks efficiently.
+</p>
+
+<p>
+<b>*</b>
+</p>
+</section>
+<section id="slide-5-6">
+<h3 id="5-6"><span class="section-number-3">5.6.</span> Key Features of PTX:</h3>
+<ol>
+<li><i>Intermediate Representation</i>:
+<ul>
+<li>PTX is generated by the CUDA compiler (nvcc) from high-level CUDA code.</li>
+<li>It is then compiled further into machine-specific binary code (SASS) for execution on NVIDIA GPUs.</li>
+
+</ul></li>
+
+<li><i>Hardware Abstraction</i>:
+<ul>
+<li>PTX abstracts GPU architecture details, making it portable across different NVIDIA GPU generations.</li>
+<li>The final compilation to machine code is done at runtime by the GPU driver.</li>
+
+</ul></li>
+
+<li><i>Instruction Set</i>:
+<ul>
+<li>PTX includes instructions for parallel computation, memory operations, and synchronization.</li>
+<li>It supports SIMD (Single Instruction, Multiple Data) execution, which is central to GPU programming.</li>
+
+</ul></li>
+
+<li><i>Registers and Threads</i>:
+<ul>
+<li>PTX operates on a per-thread basis, with each thread having its own set of registers.</li>
+<li>Threads are grouped into warps (typically 32 threads) for execution.</li>
+
+</ul></li>
+
+</ol>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-5-7">
+<h3 id="5-7"><span class="section-number-3">5.7.</span> Example PTX Code:</h3>
+<div class="org-src-container">
+
+<pre class="src src-ptx">.visible .entry kernel_name(.param .u64 ptr) {
+    .reg .u64 %r1;
+    .reg .f32 %f1;
+    ld.param.u64 %r1, [ptr];
+    ld.global.f32 %f1, [%r1];
+    add.f32 %f1, %f1, 1.0;
+    st.global.f32 [%r1], %f1;
+    ret;
+}
+</pre>
+</div>
+<ul>
+<li>This simple PTX code loads a floating-point value from global memory, increments it by 1.0, and stores it back.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-5-8">
+<h3 id="5-8"><span class="section-number-3">5.8.</span> Use Cases:</h3>
+<ol>
+<li><i>Performance Tuning</i>:
+<ul>
+<li>Developers can write or modify PTX code to optimize performance for specific GPU architectures.</li>
+
+</ul></li>
+<li><i>Debugging and Analysis</i>:
+<ul>
+<li>PTX provides insights into how CUDA code is translated and executed on the GPU.</li>
+
+</ul></li>
+<li><i>Cross-Platform Compatibility</i>:
+<ul>
+<li>PTX ensures that CUDA programs can run on future NVIDIA GPUs without recompilation.</li>
+
+</ul></li>
+
+</ol>
+
+<p>
+&#x2014;
+</p>
+
+<p>
+In summary, PTX is a critical component of NVIDIA&rsquo;s CUDA ecosystem, enabling efficient and portable GPU programming.
+</p>
+</section>
+<section id="slide-5-8-1">
+<h4 id="5-8-1"><span class="section-number-4">5.8.1.</span> I heard that in LLM training, loss is crucial, and researchers are worried about loss spikes. what does it mean?</h4>
+<p>
+In LLM (Large Language Model) training, <b>loss spikes</b> refer to sudden, sharp increases in the loss function during training, which can destabilize the learning process. Here&rsquo;s why they matter:
+</p>
+
+<p>
+&#x2014;
+</p>
+</section>
+</section>
+<section>
+<section id="slide-6">
+<h2 id="6"><span class="section-number-2">6.</span> 1. <i>What is Loss?</i>:</h2>
+<ul>
+<li>Loss measures how well the model&rsquo;s predictions match the actual data.</li>
+<li>Lower loss indicates better performance.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</section>
+</section>
+<section>
+<section id="slide-7">
+<h2 id="7"><span class="section-number-2">7.</span> 2. <i>Loss Spikes</i>:</h2>
+<ul>
+<li>A loss spike occurs when the loss value suddenly increases significantly, often due to:
+<ul>
+<li><i>Gradient Explosion</i>: Large gradients cause unstable updates to model weights.</li>
+<li><i>Poor Data Samples</i>: Outliers or noisy data can mislead the model.</li>
+<li><i>Learning Rate Issues</i>: Too high a learning rate can overshoot optimal weights.</li>
+<li><i>Hardware/Software Bugs</i>: Numerical instabilities or implementation errors.</li>
+
+</ul></li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</section>
+</section>
+<section>
+<section id="slide-8">
+<h2 id="8"><span class="section-number-2">8.</span> 3. <i>Why Are Researchers Worried?</i>:</h2>
+<ul>
+<li><i>Training Instability</i>: Loss spikes can derail convergence, making training unpredictable.</li>
+<li><i>Wasted Resources</i>: Training LLMs is computationally expensive; spikes can waste time and resources.</li>
+<li><i>Model Degradation</i>: Spikes may lead to poor model performance or even catastrophic forgetting.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</section>
+</section>
+<section>
+<section id="slide-9">
+<h2 id="9"><span class="section-number-2">9.</span> 4. <i>Mitigation Strategies</i>:</h2>
+<ul>
+<li><i>Gradient Clipping</i>: Limit gradient magnitudes to prevent explosion.</li>
+<li><i>Learning Rate Scheduling</i>: Adjust the learning rate dynamically.</li>
+<li><i>Data Cleaning</i>: Remove noisy or outlier samples.</li>
+<li><i>Mixed Precision Training</i>: Use lower precision (e.g., FP16) to reduce numerical instability.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+
+<p>
+Loss spikes are a key challenge in LLM training, and addressing them is critical for stable and efficient model development.
+</p>
+
+<p>
+<b>*</b>
+</p>
+
+<p>
+Failed run are part of the game.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-10">
+<h2 id="10"><span class="section-number-2">10.</span> can you explain why MoE</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-11">
+<h2 id="11"><span class="section-number-2">11.</span> yolo run :</h2>
+<ul>
+<li>you try on a small number of GPU, and after a while you have to yolo and go big.</li>
+<li>yolo run are cheaper in post-training runs.</li>
+
+</ul>
+<p>
+Translate that in mandarin chinese please
+</p>
+
+<p>
+YOLO 运行：
+</p>
+<ul>
+<li>你先在少量 GPU 上尝试，过一段时间后就得 YOLO（放手一搏）并加大规模。</li>
+<li>YOLO 运行在训练后的运行中更便宜。</li>
+
+</ul>
+
+<p>
+翻译成中文（简体）：
+YOLO 运行：
+</p>
+<ul>
+<li>你先在少量 GPU 上尝试，过一段时间后就得放手一搏并加大规模。</li>
+<li>YOLO 运行在训练后的运行中成本更低。</li>
+
+</ul>
+
+<p>
+<b>*</b>
+</p>
+</section>
+</section>
+<section>
+<section id="slide-12">
+<h2 id="12"><span class="section-number-2">12.</span> OpenAi went yolo on MoE in 2022.</h2>
+</section>
+</section>
+<section>
+<section id="slide-13">
+<h2 id="13"><span class="section-number-2">13.</span> Can you explain how DeepSeek approach to MoE is different from OpenAi&rsquo;s?</h2>
+<p>
+DeepSeek&rsquo;s approach to <b>Mixture of Experts (MoE)</b> differs from OpenAI&rsquo;s in several key ways:
+</p>
+
+<p>
+&#x2014;
+</p>
+
+<ol>
+<li><i>Expert Selection</i>:
+<ul>
+<li><b>OpenAI</b>: Uses a fixed, predefined routing mechanism (e.g., top-k routing) to select experts for each input.</li>
+<li><b>DeepSeek</b>: Implements a dynamic routing mechanism that adapts to the input, potentially improving efficiency and performance.</li>
+
+</ul></li>
+
+</ol>
+
+<p>
+&#x2014;
+</p>
+
+<ol>
+<li><i>Scalability</i>:
+<ul>
+<li><b>OpenAI</b>: Focuses on scaling MoE models for large-scale tasks, often requiring massive computational resources.</li>
+<li><b>DeepSeek</b>: Emphasizes resource efficiency, optimizing MoE for smaller-scale or specialized tasks without sacrificing performance.</li>
+
+</ul></li>
+
+</ol>
+
+<p>
+&#x2014;
+</p>
+
+<ol>
+<li><i>Training Stability</i>:
+<ul>
+<li><b>OpenAI</b>: Addresses loss spikes and instability through techniques like gradient clipping and learning rate scheduling.</li>
+<li><b>DeepSeek</b>: Introduces novel stabilization methods, such as adaptive expert load balancing, to reduce training instability.</li>
+
+</ul></li>
+
+</ol>
+
+<p>
+&#x2014;
+</p>
+
+<ol>
+<li><i>Use Cases</i>:
+<ul>
+<li><b>OpenAI</b>: Primarily applies MoE to general-purpose language models (e.g., GPT variants).</li>
+<li><b>DeepSeek</b>: Targets domain-specific applications, tailoring MoE architectures to specific industries or tasks.</li>
+
+</ul></li>
+
+</ol>
+
+<p>
+&#x2014;
+</p>
+
+<p>
+In summary, while OpenAI focuses on large-scale, general-purpose MoE models, DeepSeek prioritizes efficiency, adaptability, and domain-specific optimization.
+</p>
+</section>
+<section id="slide-13-0-1">
+<h4 id="13-0-1"><span class="section-number-4">13.0.1.</span> i have heard something like Deepseek having more activated experts at any one time, or maybe was it a higher activation rate, can you explain that?</h4>
+<p>
+<b>*</b>
+During large LLM training, I heard there are moments when coordination between gpu is required. I heard the terms &ldquo; all reduce&rdquo;, &ldquo;all gather&rdquo;. give me some backgroud
+</p>
+</section>
+<section id="slide-13-0-2">
+<h4 id="13-0-2"><span class="section-number-4">13.0.2.</span> DeepSeek&rsquo;s Higher Activation Rate in MoE:</h4>
+<p>
+DeepSeek&rsquo;s approach to /Mixture of Experts (MoE)* often involves activating <b>more experts per input</b> compared to OpenAI&rsquo;s typical top-k routing (e.g., top-2). Here&rsquo;s what that means:
+</p>
+
+<ul>
+<li><i>OpenAI</i>: Usually activates a small, fixed number of experts (e.g., 2 out of many) for each input token.</li>
+<li><i>DeepSeek</i>: May activate a <b>higher number of experts</b> (e.g., 4 or more) or use a <b>higher activation rate</b>, meaning more experts contribute to processing each input.</li>
+
+</ul>
+<ol class="org-ol">
+<li><a id="13-0-2-1"></a>Why This Matters:<br />
+<ol>
+<li><i>Better Representation</i>: Activating more experts allows the model to capture more nuanced patterns in the data.</li>
+<li><i>Flexibility</i>: A higher activation rate can adapt better to complex or diverse inputs.</li>
+<li><i>Trade-off</i>: While this improves performance, it also increases computational cost and communication overhead.</li>
+
+</ol>
+
+<p>
+Deepseek approach to MoE.
+Usually MoE is done with 8 to 16 experts, with 2 activated .
+This approach is what allowed Mixtral and others to make leaps.
+DeepSeek
+</p>
+</li>
+</ol>
+</section>
+<section id="slide-13-0-3">
+<h4 id="13-0-3"><span class="section-number-4">13.0.3.</span> Coordination in Large LLM Training:</h4>
+<p>
+During distributed training of large LLMs, GPUs need to synchronize their computations. Two key operations are <b>&ldquo;all-reduce&rdquo;</b> and <b>&ldquo;all-gather&rdquo;</b>:
+</p>
+
+<ol>
+<li><i>All-Reduce</i>:
+<ul>
+<li><b>Purpose</b>: Combines (e.g., sums) data across all GPUs and distributes the result back to each GPU.</li>
+<li><b>Use Case</b>: Used in gradient synchronization during backpropagation.</li>
+<li><b>Example</b>: Each GPU computes a gradient, and <code>all-reduce</code> ensures all GPUs have the same averaged gradient for weight updates.</li>
+
+</ul></li>
+
+<li><i>All-Gather</i>:
+<ul>
+<li><b>Purpose</b>: Collects data from all GPUs and distributes the combined data to each GPU.</li>
+<li><b>Use Case</b>: Used when GPUs need to share information, such as embeddings or intermediate results.</li>
+<li><b>Example</b>: Each GPU holds a part of a large tensor, and <code>all-gather</code> combines them into a full tensor on all GPUs.</li>
+
+</ul></li>
+
+</ol>
+<p>
+Apart from all-reduces and all-gather
+</p>
+<ol class="org-ol">
+<li><a id="13-0-3-1"></a>Why Coordination Matters:<br />
+<ul>
+<li><i>Consistency</i>: Ensures all GPUs work with the same data, maintaining model consistency.</li>
+<li><i>Scalability</i>: Enables training on massive datasets by distributing workloads across many GPUs.</li>
+<li><i>Bottleneck</i>: These operations can become communication bottlenecks, especially in large-scale training.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+
+<p>
+In summary:
+</p>
+<ul>
+<li>DeepSeek&rsquo;s higher activation rate in MoE allows for richer input processing but increases computational demands.</li>
+<li><p>
+Coordination operations like <code>all-reduce</code> and <code>all-gather</code> are critical for synchronizing distributed training across GPUs.
+</p>
+
+<p>
+8 out of 256 experts.
+</p></li>
+
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section>
+<section id="slide-14">
+<h2 id="14"><span class="section-number-2">14.</span> can you give me an analogy for the MoE approach?</h2>
+<p>
+The Mixture of Experts (MoE) approach can be likened to a team of specialists in a hospital. Each doctor (expert) specializes in a specific area (e.g., cardiology, neurology). When a patient (input) arrives, a gating mechanism (like a triage nurse) decides which specialist(s) should handle the case based on the patient&rsquo;s symptoms. The selected specialists then collaborate to provide a diagnosis or treatment (output). This way, the system leverages the strengths of each expert, rather than relying on a single generalist.
+</p>
+
+<p>
+<b>*</b>
+</p>
+</section>
+</section>
+<section>
+<section id="slide-15">
+<h2 id="15"><span class="section-number-2">15.</span> how would you define &ldquo;sparsity factor&rdquo; in the context of LLM MoE training?</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-16">
+<h2 id="16"><span class="section-number-2">16.</span> I heard a AI specialist saying that in the Mixture of Expert literature there is something known as the auxiliary loss to balance the participation of experts. Can you tell me more about that term?</h2>
+<ol>
+<li><b>Sparsity Factor in LLM MoE Training</b>:
+The sparsity factor refers to the proportion of experts that are activated for a given input in a Mixture of Experts (MoE) model. In MoE, only a small subset of experts (e.g., 1 or 2) is typically activated per input, making the model computationally efficient. The sparsity factor is the ratio of active experts to the total number of experts, often kept low (e.g., 1/8 or 1/16) to maintain efficiency.</li>
+
+<li><p>
+<b>Auxiliary Loss in MoE</b>:
+The auxiliary loss is a regularization term added to the training objective to encourage balanced expert participation. Without it, some experts might be underutilized. A common form is the &ldquo;load balancing loss,&rdquo; which penalizes uneven expert usage, ensuring all experts contribute meaningfully. This helps prevent mode collapse and improves model performance.
+</p>
+
+<p>
+Data
+Architecture DeepSeek shared architecture and training. Their low level load balancing to coordinate 32 experts is something that they are the first to figure out publicly. You could say that maybe 1 or 2 cother companies have been able to that before, but even that is not even sure.
+Post-training
+</p></li>
+
+</ol>
+
+<p>
+<b>*</b>
+Is it fair to say the the current LLM architecture, even with mixture of experts, is limited. I mean: if I ask a model how many &ldquo;2&rdquo; are in straberry and it gets it wrong, than clearly there is something wrong. The core math and logic is not part of the model training, and so I conclude that LLM will not be the models that will win the race.
+Please give me your opinion about that point, thank you
+</p>
+
+<p>
+Your observation touches on a key limitation of current LLMs. While they excel at pattern recognition and generating coherent text, they lack inherent reasoning and mathematical capabilities. Models like GPT-4 rely on statistical patterns in training data rather than explicit logic or symbolic reasoning. This is why they can struggle with tasks requiring precise counting, arithmetic, or logical deduction.
+</p>
+
+<p>
+Mixture of Experts (MoE) improves efficiency and specialization but doesn&rsquo;t fundamentally address this limitation. LLMs are not designed to perform tasks requiring formal reasoning or exact computation, as their training is based on predicting the next token rather than understanding underlying rules.
+</p>
+
+<p>
+However, LLMs are still powerful tools for many applications, especially when combined with external systems (e.g., calculators, symbolic solvers). The &ldquo;winning&rdquo; models of the future may integrate neural approaches with symbolic reasoning, bridging the gap between pattern recognition and logical rigor. So while LLMs alone may not &ldquo;win the race,&rdquo; they could be a key component of more advanced hybrid systems.
+</p>
+
+<p>
+<b>*</b>
+</p>
+</section>
+</section>
+<section>
+<section id="slide-17">
+<h2 id="17"><span class="section-number-2">17.</span> the bitter lesson essentially says that the type of training that will win out are scalable in learning and search.</h2>
+<p>
+My son is 8 yo and homeschooled, and i have problem with his behavior. should I punish him and prevent him from going to his hobbies?
+</p>
+
+
+<p>
+Focus on understanding the root cause of the behavior rather than punitive measures. Consider these steps:
+</p>
+<ol>
+<li><b>Connect first</b>: Address emotional needs - homeschool can be socially isolating.</li>
+<li><b>Clear expectations</b>: Create consistent routines/rules <span class="underline">with</span> him, not just <span class="underline">for</span> him.</li>
+<li><b>Natural consequences</b>: Tie consequences directly to actions (e.g., &ldquo;If schoolwork isn&rsquo;t finished by noon, park time shifts to after completion&rdquo;).</li>
+<li><b>Preserve hobbies</b>: These are crucial for motivation and emotional regulation.</li>
+
+</ol>
+
+<p>
+For specific strategies, <b>&ldquo;How to Talk So Kids Will Listen&rdquo;</b> (Faber/Mazlish) offers practical communication tools. Would you like guidance on implementing positive discipline techniques?
+</p>
+</section>
+<section id="slide-17-0-1">
+<h4 id="17-0-1"><span class="section-number-4">17.0.1.</span> I have been using deepseek api over the last month, and there seems to have changes among the models that are now avaible, for example it seems that deepseek-coder is gone. Could you list the models that are currently available for api calls?</h4>
+<p>
+As of my knowledge cutoff in October 2023, I don&rsquo;t have real-time access to DeepSeek&rsquo;s API or its model updates. However, you can check the latest available models by:
+</p>
+
+<ol>
+<li>Visiting the official DeepSeek API documentation.</li>
+<li>Using their API endpoint to list available models (if supported).</li>
+<li>Contacting their support team for the most accurate and up-to-date information.</li>
+
+</ol>
+
+<p>
+If you share the API documentation or specific details, I can help interpret or guide you further!
+</p>
+</section>
+</section>
+<section>
+<section id="slide-18">
+<h2 id="18"><span class="section-number-2">18.</span> can you explain what is LSTM long shot term memory and how it differs from Transformer</h2>
+<p>
+<b>*LSTM (Long Short-Term Memory):</b>
+A type of Recurrent Neural Network (RNN) designed to handle long-term dependencies. Uses <b>gates</b> (input, forget, output) to regulate information flow via a cell state, mitigating vanishing gradients in traditional RNNs. Processes data <b>sequentially</b> (step-by-step).
+</p>
+
+<p>
+<b>Transformers:</b>
+Rely on <b>self-attention</b> to process all sequence elements in parallel. Use <b>positional encodings</b> for order information. No recurrence; scales efficiently with modern hardware.
+</p>
+
+<p>
+<b>Key Differences:</b>
+</p>
+<ol>
+<li><b>Processing:</b> Sequential (LSTM) vs. parallel (Transformers).</li>
+<li><b>Mechanism:</b> Gates vs. self-attention.</li>
+<li><b>Long-range context:</b> Transformers handle distant dependencies better via direct attention links.</li>
+<li><b>Speed:</b> Transformers train faster (parallelization).</li>
+<li><b>Data:</b> Transformers typically require more data but scale better.</li>
+<li><b>Order handling:</b> LSTMs implicitly capture sequence order; Transformers require explicit positional encodings.</li>
+
+</ol>
+
+<p>
+Transformers dominate modern NLP (e.g., GPT, BERT), while LSTMs are less common post-2017.
+</p>
+</section>
+<section id="slide-18-0-1">
+<h4 id="18-0-1"><span class="section-number-4">18.0.1.</span> have you heard about the latest version of LSTM, it is called xLSTM ( NX-AI )? if yes what can you tell me about them?</h4>
+<p>
+Yes! <b>xLSTM</b> (from the <b>NX-AI</b> research group) is a recent extension of traditional LSTM architectures, designed to address key limitations of both classic LSTMs and Transformers. Here’s what’s known so far:
+</p>
+</section>
+<section id="slide-18-0-2">
+<h4 id="18-0-2"><span class="section-number-4">18.0.2.</span> <b>Key Features of xLSTM</b> (2024):</h4>
+<ol>
+<li><b>Exponential Gating</b>
+<ul>
+<li>Replaces traditional sigmoid gates with <i>exponential activation functions</i> to improve gradient flow and enable more stable training over very long sequences.</li>
+<li>Mitigates the &ldquo;vanishing gradient&rdquo; issue more effectively than classic LSTMs.</li>
+
+</ul></li>
+<li><b>Matrix Memory</b>
+<ul>
+<li>Uses a <i>matrix-based cell state</i> (instead of a vector) to store richer contextual information.</li>
+<li>Allows for parallelizable operations and better modeling of complex dependencies.</li>
+
+</ul></li>
+
+<li><b>Parallel Training</b>
+<ul>
+<li>Unlike classic LSTMs (sequential by design), xLSTM introduces <b>grouped processing</b> to enable partial parallelization during training.</li>
+<li>Reduces training time while retaining sequential inductive bias.</li>
+
+</ul></li>
+
+<li><b>Scalability</b>
+<ul>
+<li>Combines the efficiency of LSTMs with the scalability of Transformers.</li>
+<li>Claims competitive performance on large language tasks (e.g., language modeling) with fewer parameters.</li>
+
+</ul></li>
+
+</ol>
+</section>
+<section id="slide-18-0-3">
+<h4 id="18-0-3"><span class="section-number-4">18.0.3.</span> <b>How xLSTM Differs from Transformers</b>:</h4>
+<ul>
+<li><b>Mechanism</b>: Relies on gated recurrence (LSTM-style) rather than self-attention.</li>
+<li><b>Inductive Bias</b>: Built for sequential data (like text/time series), avoiding Transformers’ need for positional encodings.</li>
+<li><b>Memory</b>: Explicit cell state vs. Transformers’ implicit memory via attention weights.</li>
+<li><b>Hardware</b>: Potentially more efficient on non-GPU hardware due to reduced memory overhead.</li>
+
+</ul>
+</section>
+<section id="slide-18-0-4">
+<h4 id="18-0-4"><span class="section-number-4">18.0.4.</span> <b>Potential Benefits</b>:</h4>
+<ul>
+<li><b>Efficiency</b>: Lower computational cost for sequence modeling compared to Transformers.</li>
+<li><b>Performance</b>: Early benchmarks show improved results on tasks requiring long-term coherence (e.g., code generation, long-context QA).</li>
+<li><b>Hybrid Potential</b>: Could integrate with Transformer layers (e.g., in hybrid architectures).</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+
+<ul>
+<li>Still in <b>research phase</b> (paper: <b>&ldquo;Resurrecting Recurrent Neural Networks for Long Sequences&rdquo;</b>, May 2024).</li>
+<li>Not yet widely adopted, but seen as a promising step toward bridging the gap between recurrence and attention.</li>
+
+</ul>
+<p>
+Please summarize the paper
+</p>
+</section>
+<section id="slide-18-0-5">
+<h4 id="18-0-5"><span class="section-number-4">18.0.5.</span> xLSTM 和 LLM 的对比分析。</h4>
+<p>
+以下是xLSTM与LLM（大语言模型，通常基于Transformer架构）的对比分析，涵盖结构、性能和应用场景等方面：
+</p>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-18-0-6">
+<h4 id="18-0-6"><span class="section-number-4">18.0.6.</span> <b>1. 核心机制对比</b></h4>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>维度</b></th>
+<th scope="col" class="org-left"><b>xLSTM</b></th>
+<th scope="col" class="org-left"><b>LLM（如GPT、PaLM）</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>基础架构</b></td>
+<td class="org-left">改进的循环神经网络（RNN），引入指数门控和矩阵记忆</td>
+<td class="org-left">基于Transformer的自注意力机制</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>序列处理方式</b></td>
+<td class="org-left">通过门控机制逐步处理序列，保留循环结构的时序依赖性</td>
+<td class="org-left">并行处理整个序列，依赖位置编码捕捉顺序</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>长程依赖</b></td>
+<td class="org-left">通过指数门控和扩展的细胞状态增强长时记忆能力</td>
+<td class="org-left">自注意力直接关联任意距离的token，理论上无限长上下文</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>硬件并行性</b></td>
+<td class="org-left">分组处理实现部分并行，但仍受限于循环结构</td>
+<td class="org-left">完全并行化计算，适合GPU/TPU大规模训练</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-18-0-7">
+<h4 id="18-0-7"><span class="section-number-4">18.0.7.</span> <b>2. 性能表现对比</b></h4>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>维度</b></th>
+<th scope="col" class="org-left"><b>xLSTM</b></th>
+<th scope="col" class="org-left"><b>LLM</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>训练速度</b></td>
+<td class="org-left">比传统LSTM快（分组并行），但仍慢于Transformer</td>
+<td class="org-left">极快（完全并行）</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>内存占用</b></td>
+<td class="org-left">矩阵记忆增加存储开销，但整体低于Transformer的注意力矩阵</td>
+<td class="org-left">注意力矩阵随序列长度平方增长，显存消耗大</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>长文本任务</b></td>
+<td class="org-left">在需要严格时序逻辑的任务（如代码补全）表现更稳定</td>
+<td class="org-left">依赖位置编码和外推技术，长文本推理可能出现退化</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>小样本学习</b></td>
+<td class="org-left">循环结构的归纳偏置有助于低资源场景</td>
+<td class="org-left">需大量数据预训练，小样本泛化依赖提示工程</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-18-0-8">
+<h4 id="18-0-8"><span class="section-number-4">18.0.8.</span> <b>3. 应用场景对比</b></h4>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>场景</b></th>
+<th scope="col" class="org-left"><b>xLSTM优势</b></th>
+<th scope="col" class="org-left"><b>LLM优势</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>实时流数据处理</b></td>
+<td class="org-left">天然适合逐帧处理的场景（如传感器数据、实时翻译）</td>
+<td class="org-left">需缓存完整序列，延迟较高</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>长序列建模</b></td>
+<td class="org-left">通过门控机制避免注意力稀释，长代码/文档理解更连贯</td>
+<td class="org-left">需窗口限制或稀疏注意力优化，可能丢失全局信息</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>边缘设备部署</b></td>
+<td class="org-left">参数效率高，适合资源受限环境（如手机端AI助手）</td>
+<td class="org-left">模型体积庞大，需蒸馏或量化</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>生成任务多样性</b></td>
+<td class="org-left">输出更保守，适合需要严格一致性的场景（如法律文本生成）</td>
+<td class="org-left">创造力强，适合开放域对话、创意写作</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-18-0-9">
+<h4 id="18-0-9"><span class="section-number-4">18.0.9.</span> <b>4. 发展潜力与挑战</b></h4>
+<ul>
+<li><b>xLSTM优势</b>
+<ul>
+<li>理论创新：解决LSTM梯度消失问题的同时保留时序归纳偏置</li>
+<li>效率突破：论文称在PG19长文本任务上，7亿参数xLSTM媲美13亿参数Transformer</li>
+<li>硬件友好：减少对高带宽内存的依赖，适合边缘计算</li>
+
+</ul></li>
+
+<li><b>LLM优势</b>
+<ul>
+<li>生态成熟：HuggingFace等平台提供丰富的预训练模型和微调工具</li>
+<li>多模态扩展：Transformer架构已成功扩展到图像（ViT）、音频（Whisper）等领域</li>
+
+</ul></li>
+
+<li><b>关键挑战</b>
+<ul>
+<li>xLSTM：社区工具链缺失（暂无主流框架支持），大规模预训练验证不足</li>
+<li>LLM：注意力计算复杂度高，持续扩展面临物理极限</li>
+
+</ul></li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-18-0-10">
+<h4 id="18-0-10"><span class="section-number-4">18.0.10.</span> <b>5. 总结</b></h4>
+<ul>
+<li>*xLSTM可能适用的场景*：
+资源受限的长序列任务（如嵌入式设备上的实时语音助手）、强时序逻辑需求（如自动化代码审查）</li>
+
+<li>*LLM仍主导的领域*：
+开放域生成任务（创意写作、对话）、多模态融合系统（图文理解）、海量数据预训练</li>
+
+</ul>
+
+<p>
+未来趋势可能是*混合架构*（如xLSTM处理底层时序特征 + Transformer高层语义整合），而非完全替代。
+</p>
+
+<p>
+<b>*</b>
+</p>
+</section>
+</section>
+<section>
+<section id="slide-19">
+<h2 id="19"><span class="section-number-2">19.</span> what can you tell me about xLSTM, and if you find a good research paper please sum it up.</h2>
+<p>
+Here’s a concise summary of the <b>xLSTM paper</b> (<b>&ldquo;Resurrecting Recurrent Neural Networks for Long Sequences&rdquo;</b> by Beck et al., May 2024):
+</p>
+</section>
+<section id="slide-19-0-1">
+<h4 id="19-0-1"><span class="section-number-4">19.0.1.</span> <b>Core Innovations</b></h4>
+<ol>
+<li><b>Exponential Gating</b>
+<ul>
+<li>Replaces sigmoid gates in LSTMs with <i>exponential activation functions</i> to combat vanishing gradients and improve gradient flow for long sequences.</li>
+<li>Enables more stable training and better retention of long-term dependencies.</li>
+
+</ul></li>
+
+<li><b>Matrix Memory</b>
+<ul>
+<li>Upgrades the cell state from a vector to a <i>matrix</i>, allowing richer memory storage and parallelizable computations.</li>
+<li>Enhances capacity to model complex dependencies (e.g., hierarchical patterns in text/code).</li>
+
+</ul></li>
+
+<li><b>Parallel Training via Grouped Processing</b>
+<ul>
+<li>Splits sequences into groups processed in parallel (partial parallelization) while retaining sequential inductive bias.</li>
+<li>Bridges the efficiency gap between RNNs (traditionally sequential) and Transformers (parallel).</li>
+
+</ul></li>
+
+</ol>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-19-0-2">
+<h4 id="19-0-2"><span class="section-number-4">19.0.2.</span> <b>Key Results</b></h4>
+<ul>
+<li><b>Performance</b>: Matches or exceeds Transformers (e.g., GPT-2/3-sized models) on language modeling (Wikitext, PG19) and long-context tasks (e.g., QA over 10k+ tokens).</li>
+<li><b>Efficiency</b>: Trains faster than classic LSTMs and competes with Transformers in throughput, especially on long sequences.</li>
+<li><b>Scalability</b>: Demonstrates stable scaling to billions of parameters, with fewer resources than equivalent Transformer models.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-19-0-3">
+<h4 id="19-0-3"><span class="section-number-4">19.0.3.</span> <b>Architecture Details</b></h4>
+<ul>
+<li><b>sLSTM Block</b>: Scalar memory with exponential gating (simpler, faster).</li>
+<li><b>mLSTM Block</b>: Matrix memory + exponential gating (higher capacity, parallelizable).</li>
+<li><b>Grouped Processing</b>: Enables parallel computation of chunks (similar to Transformers) while preserving sequence order.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+</section>
+<section id="slide-19-0-4">
+<h4 id="19-0-4"><span class="section-number-4">19.0.4.</span> <b>Significance</b></h4>
+<ul>
+<li>Revives RNNs as competitive alternatives to Transformers for long sequences.</li>
+<li>Combines strengths of LSTMs (sequential bias, memory efficiency) and Transformers (parallel training, scalability).</li>
+<li>Opens doors for hybrid architectures (e.g., xLSTM-Transformer layers) and efficient deployment on non-GPU hardware.</li>
+
+</ul>
+
+<p>
+&#x2014;
+</p>
+
+<p>
+<b>Current Status</b>: Early-stage research with promising benchmarks, but not yet mainstream. Code/models not fully open-sourced as of mid-2024.
+09:45:47.06
+09:46:13.666667
+09:47:43.06
+09:48:23.833333
+</p>
+
+<ul>
+<li>*xLSTM可能适用的场景*：
+资源受限的长序列任务（如嵌入式设备上的实时语音助手）、强时序逻辑需求（如自动化代码审查）</li>
+
+<li>*LLM仍主导的领域*：
+开放域生成任务（创意写作、对话）、多模态融合系统（图文理解）、海量数据预训练</li>
+
+</ul>
+
+<p>
+未来趋势可能是*混合架构*（如xLSTM处理底层时序特征 + Transformer高层语义整合），而非完全替代。
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="file:///home/laurent/.config/emacs/.local/straight/build-31.0.50/revealjs/dist/reveal.js"></script>
+<script src="file:///home/laurent/.config/emacs/.local/straight/build-31.0.50/revealjs/plugin/markdown/markdown.js"></script>
+<script src="file:///home/laurent/.config/emacs/.local/straight/build-31.0.50/revealjs/plugin/notes/notes.js"></script>
+<script src="file:///home/laurent/.config/emacs/.local/straight/build-31.0.50/revealjs/plugin/search/search.js"></script>
+<script src="file:///home/laurent/.config/emacs/.local/straight/build-31.0.50/revealjs/plugin/zoom/zoom.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+
+transition: 'convex',
+transitionSpeed: 'default',
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealMarkdown, RevealNotes, RevealSearch, RevealZoom ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+});
+</script>
+</body>
+</html>
