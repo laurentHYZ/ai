@@ -15,32 +15,13 @@
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">a.org file A</h1><h2 class="author">Laurent Pinson</h2><h2 class="email"><a href="mailto:laurent@laurent-ThinkPad-X1-Carbon-4th">laurent@laurent-ThinkPad-X1-Carbon-4th</a></h2><p class="date">Created: 2025-02-28 Fri 13:22</p>
+<h1 class="title">a.org file A</h1><h2 class="author">Laurent Pinson</h2><h2 class="email"><a href="mailto:laurent@laurent-ThinkPad-X1-Carbon-4th">laurent@laurent-ThinkPad-X1-Carbon-4th</a></h2><p class="date">Created: 2025-03-25 Tue 15:40</p>
 </section>
-<p>
-:GPTEL<sub>MODEL</sub>: deepseek-coder
-:GPTEL<sub>BACKEND</sub>: DeepSeek
-:GPTEL<sub>SYSTEM</sub>: You are a large language model living in Emacs and a helpful assistant. Respond concisely.
-:GPTEL<sub>BOUNDS</sub>: ((143102 . 143764) (144330 . 145278) (145357 . 146096) (146151 . 146642) (146774 . 147204) (147229 . 147311) (147339 . 147619) (147621 . 148005) (148011 . 148077) (148089 . 148173) (148191 . 148515) (148797 . 149928) (149936 . 150839))
-:GPTEL<sub>NUM</sub><sub>MESSAGES</sub><sub>TO</sub><sub>SEND</sub>: 3
-</p>
-<div class="org-src-container">
-
-<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #a9a1e1;">set-face-attribute</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">default</span> nil <span style="color: #c678dd;">:family</span> <span style="color: #98be65;">"Iosevka"</span><span style="color: #51afef;">)</span>
-<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">set-face-attribute</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">variable-pitch</span> nil <span style="color: #c678dd;">:family</span> <span style="color: #98be65;">"Iosevka Aile"</span><span style="color: #51afef;">)</span>
-<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">set-face-attribute</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">org-modern-symbol</span> nil <span style="color: #c678dd;">:family</span> <span style="color: #98be65;">"Iosevka"</span><span style="color: #51afef;">)</span>
-</pre>
-</div>
 <section>
 <section id="slide-1">
 <h2 id="1"><span class="section-number-2">1.</span> please write a good emacs lisp tutorial. use bunch of example codes</h2>
-<p>
-Here’s a concise Emacs Lisp tutorial with examples to get you started:
-</p>
-
-<p>
-&#x2014;
-</p>
+<div class="outline-text-2" id="text-1">
+</div>
 </section>
 <section id="slide-1-0-1">
 <h4 id="1-0-1"><span class="section-number-4">1.0.1.</span> <b>1. Basics of Emacs Lisp</b></h4>
@@ -54,6 +35,7 @@ Emacs Lisp is a dialect of Lisp used to extend and customize Emacs. It’s a fun
 <pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #98be65;">"Hello, World!"</span><span style="color: #51afef;">)</span>
 </pre>
 </div>
+
 <ul>
 <li><code>message</code> prints a string to the minibuffer.</li>
 
@@ -71,16 +53,53 @@ Emacs Lisp is a dialect of Lisp used to extend and customize Emacs. It’s a fun
 <li><code>%d</code> is a format specifier for integers.</li>
 
 </ul>
+<ol class="org-ol">
+<li><a id="1-0-1-2-1"></a>Questions:<br />
+<p>
+Look at the code below and tell me what %d means and represent. thank you.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> my-var <span style="color: #da8548; font-weight: bold;">42</span><span style="color: #51afef;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Set a variable</span>
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #98be65;">"My variable is %d"</span> my-var<span style="color: #51afef;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Print it</span>
+</pre>
+</div>
+
+
+
+<p>
+<code>%d</code> is a format specifier used in the <code>message</code> function (and other string formatting functions in Emacs Lisp) to represent a decimal integer. It will be replaced by the value of <code>my-var</code> (which is 42) when the message is displayed.
+What is a decimal integer , contrasted with an integer.
+</p>
+
+<p>
+A decimal integer is an integer expressed in base 10, the standard number system. &ldquo;Integer&rdquo; refers to the mathematical concept, while &ldquo;decimal integer&rdquo; specifies its representation.
+</p>
+
+<p>
+what would be the format specifier for a deciml floating point?
+</p>
+
+<p>
+<code>%f</code>
+</p>
 </li>
-<li><a id="1-0-1-3"></a><b>Functions</b><br />
+</ol>
+</li>
+</ol>
+</section>
+<section id="slide-1-0-2">
+<h4 id="1-0-2"><span class="section-number-4">1.0.2.</span> <b>Functions</b></h4>
 <div class="org-src-container">
 
 <pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">greet</span> <span style="color: #c678dd;">(</span>name<span style="color: #c678dd;">)</span>
   <span style="color: #83898d;">"Print a greeting message."</span>
-  <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #98be65;">"Hello, %s!"</span> name<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #98be65;">"&#20320;&#22909;, %s!"</span> name<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
 <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">funcall</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">greet</span> <span style="color: #98be65;">"Jane"</span><span style="color: #51afef;">)</span>
 </pre>
 </div>
+
 
 <ul>
 <li><code>defun</code> defines a function.</li>
@@ -91,16 +110,14 @@ Emacs Lisp is a dialect of Lisp used to extend and customize Emacs. It’s a fun
 <p>
 &#x2014;
 </p>
-</li>
-</ol>
 </section>
-<section id="slide-1-0-2">
-<h4 id="1-0-2"><span class="section-number-4">1.0.2.</span> <b>2. Lists and Data Structures</b></h4>
+<section id="slide-1-0-3">
+<h4 id="1-0-3"><span class="section-number-4">1.0.3.</span> <b>2. Lists and Data Structures</b></h4>
 <p>
 Lisp stands for &ldquo;LISt Processing,&rdquo; so lists are fundamental.
 </p>
 <ol class="org-ol">
-<li><a id="1-0-2-1"></a><b>Creating Lists</b><br />
+<li><a id="1-0-3-1"></a><b>Creating Lists</b><br />
 <div class="org-src-container">
 
 <pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> my-list <span style="color: #51afef;">'</span><span style="color: #c678dd;">(</span><span style="color: #da8548; font-weight: bold;">1</span> <span style="color: #da8548; font-weight: bold;">2</span> <span style="color: #da8548; font-weight: bold;">3</span> <span style="color: #da8548; font-weight: bold;">4</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Create a list</span>
@@ -124,12 +141,12 @@ Lisp stands for &ldquo;LISt Processing,&rdquo; so lists are fundamental.
 </li>
 </ol>
 </section>
-<section id="slide-1-0-3">
-<h4 id="1-0-3"><span class="section-number-4">1.0.3.</span> <b>3. Control Flow</b></h4>
-<div class="outline-text-4" id="text-1-0-3">
+<section id="slide-1-0-4">
+<h4 id="1-0-4"><span class="section-number-4">1.0.4.</span> <b>3. Control Flow</b></h4>
+<div class="outline-text-4" id="text-1-0-4">
 </div>
 <ol class="org-ol">
-<li><a id="1-0-3-1"></a><b>If Statements</b><br />
+<li><a id="1-0-4-1"></a><b>If Statements</b><br />
 <div class="org-src-container">
 
 <pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> x <span style="color: #da8548; font-weight: bold;">10</span><span style="color: #51afef;">)</span>
@@ -143,13 +160,14 @@ Lisp stands for &ldquo;LISt Processing,&rdquo; so lists are fundamental.
 
 </ul>
 </li>
-<li><a id="1-0-3-2"></a><b>Loops</b><br />
+<li><a id="1-0-4-2"></a><b>Loops</b><br />
 <div class="org-src-container">
 
 <pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">dotimes</span> <span style="color: #c678dd;">(</span>i <span style="color: #da8548; font-weight: bold;">5</span><span style="color: #c678dd;">)</span>
   <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">print</span> <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">format</span> <span style="color: #98be65;">"Iteration: %d"</span> i<span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Loop 5 times</span>
 </pre>
 </div>
+
 
 
 <p>
@@ -229,8 +247,8 @@ The term <i>Dynamic String Construction</i> emphasizes the process of building s
 </li>
 </ol>
 </section>
-<section id="slide-1-0-4">
-<h4 id="1-0-4"><span class="section-number-4">1.0.4.</span> The term &ldquo;number 8&rdquo; likely refers to the number itself, which is a numeral in the decimal system. If you&rsquo;re referring to a specific context (e.g., sports, music, slang), please provide more details for a precise explanation.</h4>
+<section id="slide-1-0-5">
+<h4 id="1-0-5"><span class="section-number-4">1.0.5.</span> The term &ldquo;number 8&rdquo; likely refers to the number itself, which is a numeral in the decimal system. If you&rsquo;re referring to a specific context (e.g., sports, music, slang), please provide more details for a precise explanation.</h4>
 <p>
 <b>*</b>
 <b>*</b>
@@ -240,8 +258,8 @@ The term <i>Dynamic String Construction</i> emphasizes the process of building s
 <b>*</b>
 </p>
 </section>
-<section id="slide-1-0-5">
-<h4 id="1-0-5"><span class="section-number-4">1.0.5.</span> Examples in Different Languages:</h4>
+<section id="slide-1-0-6">
+<h4 id="1-0-6"><span class="section-number-4">1.0.6.</span> Examples in Different Languages:</h4>
 <ol>
 <li><p>
 <b>Python</b> (using f-strings):
@@ -281,8 +299,8 @@ The term <i>Dynamic String Construction</i> emphasizes the process of building s
 
 </ol>
 </section>
-<section id="slide-1-0-6">
-<h4 id="1-0-6"><span class="section-number-4">1.0.6.</span> Sentences Using the Term &ldquo;Format&rdquo;:</h4>
+<section id="slide-1-0-7">
+<h4 id="1-0-7"><span class="section-number-4">1.0.7.</span> Sentences Using the Term &ldquo;Format&rdquo;:</h4>
 <ul>
 <li>&ldquo;The document needs to be saved in PDF format for submission.&rdquo;</li>
 <li>&ldquo;Please format your code according to the style guide.&rdquo;</li>
@@ -298,7 +316,7 @@ The term <i>Dynamic String Construction</i> emphasizes the process of building s
 </pre>
 </div>
 <ol class="org-ol">
-<li><a id="1-0-6-1"></a><b>While Loops</b><br />
+<li><a id="1-0-7-1"></a><b>While Loops</b><br />
 <div class="org-src-container">
 
 <pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> counter <span style="color: #da8548; font-weight: bold;">0</span><span style="color: #51afef;">)</span>
@@ -310,12 +328,12 @@ The term <i>Dynamic String Construction</i> emphasizes the process of building s
 </li>
 </ol>
 </section>
-<section id="slide-1-0-7">
-<h4 id="1-0-7"><span class="section-number-4">1.0.7.</span> <b>5. Interacting with Files</b></h4>
-<div class="outline-text-4" id="text-1-0-7">
+<section id="slide-1-0-8">
+<h4 id="1-0-8"><span class="section-number-4">1.0.8.</span> <b>5. Interacting with Files</b></h4>
+<div class="outline-text-4" id="text-1-0-8">
 </div>
 <ol class="org-ol">
-<li><a id="1-0-7-1"></a><b>Read a File</b><br />
+<li><a id="1-0-8-1"></a><b>Read a File</b><br />
 <div class="org-src-container">
 
 <pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> file-content <span style="color: #c678dd;">(</span><span style="color: #51afef;">with-temp-buffer</span>
@@ -329,65 +347,60 @@ The term <i>Dynamic String Construction</i> emphasizes the process of building s
 
 </ul>
 </li>
-<li><a id="1-0-7-2"></a><b>Write to a File</b><br />
+<li><a id="1-0-8-2"></a><b>Write to a File</b><br />
 <div class="org-src-container">
 
 <pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">with-temp-file</span> <span style="color: #98be65;">"output2.txt"</span>
-  <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">insert</span> <span style="color: #98be65;">"This is written to a file."</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">insert</span> <span style="color: #98be65;">"This iz written to a file."</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
 </pre>
 </div>
 
-<ul>
-<li><code>with-temp-file</code> creates and writes to a file.</li>
-
-</ul>
-
-<p>
-&#x2014;
-</p>
-</li>
-</ol>
-</section>
-<section id="slide-1-0-8">
-<h4 id="1-0-8"><span class="section-number-4">1.0.8.</span> <b>6. Custom Keybindings</b></h4>
-<div class="outline-text-4" id="text-1-0-8">
-</div>
-<ol class="org-ol">
-<li><a id="1-0-8-1"></a><b>Define a Keybinding</b><br />
 <div class="org-src-container">
 
-<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #a9a1e1;">global-set-key</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">kbd</span> <span style="color: #98be65;">"C-c h"</span><span style="color: #c678dd;">)</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">greet</span><span style="color: #51afef;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Bind C-c h to the `greet` function</span>
+<pre class="src src-shell"><span style="color: #ECBE7B;">cat</span> output2.txt
 </pre>
 </div>
-<ul>
-<li><code>global-set-key</code> binds a key sequence to a function.</li>
-
-</ul>
-</li>
-<li><a id="1-0-8-2"></a><b>Local Keybinding</b><br />
-<div class="org-src-container">
-
-<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #a9a1e1;">define-key</span> <span style="color: #dcaeea;">emacs-lisp-mode-map</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">kbd</span> <span style="color: #98be65;">"C-c l"</span><span style="color: #c678dd;">)</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">message</span><span style="color: #51afef;">)</span>
-</pre>
-</div>
-<ul>
-<li><code>define-key</code> binds a key in a specific mode.</li>
-
-</ul>
-
-<p>
-&#x2014;
-</p>
 </li>
 </ol>
 </section>
 <section id="slide-1-0-9">
-<h4 id="1-0-9"><span class="section-number-4">1.0.9.</span> <b>7. Hooks</b></h4>
+<h4 id="1-0-9"><span class="section-number-4">1.0.9.</span> <b>6. Custom Keybindings</b></h4>
+<div class="outline-text-4" id="text-1-0-9">
+</div>
+<ol class="org-ol">
+<li><a id="1-0-9-1"></a><b>Define a Keybinding</b><br />
+<div class="org-src-container">
+
+<pre class="src src-elisp">
+</pre>
+</div>
+<p>
+define elisp function greet that simply prints &ldquo;hello there&rdquo;
+</p>
+
+
+
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">greet</span> <span style="color: #c678dd;">()</span>
+  <span style="color: #83898d;">"Prints 'hello there'."</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">interactive</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #98be65;">"hello there"</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+
+<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">global-set-key</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">kbd</span> <span style="color: #98be65;">"C-c h"</span><span style="color: #c678dd;">)</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">greet</span><span style="color: #51afef;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Bind C-c h to the `greet` function</span>
+
+</pre>
+</div>
+</li>
+</ol>
+</section>
+<section id="slide-1-0-10">
+<h4 id="1-0-10"><span class="section-number-4">1.0.10.</span> <b>7. Hooks</b></h4>
 <p>
 Hooks allow you to run code when certain events occur.
 </p>
 <ol class="org-ol">
-<li><a id="1-0-9-1"></a><b>Add a Hook</b><br />
+<li><a id="1-0-10-1"></a><b>Add a Hook</b><br />
 <div class="org-src-container">
 
 <pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #a9a1e1;">add-hook</span> <span style="color: #51afef;">'</span><span style="color: #dcaeea;">emacs-lisp-mode-hook</span>
@@ -406,12 +419,12 @@ Hooks allow you to run code when certain events occur.
 </li>
 </ol>
 </section>
-<section id="slide-1-0-10">
-<h4 id="1-0-10"><span class="section-number-4">1.0.10.</span> <b>8. Error Handling</b></h4>
-<div class="outline-text-4" id="text-1-0-10">
+<section id="slide-1-0-11">
+<h4 id="1-0-11"><span class="section-number-4">1.0.11.</span> <b>8. Error Handling</b></h4>
+<div class="outline-text-4" id="text-1-0-11">
 </div>
 <ol class="org-ol">
-<li><a id="1-0-10-1"></a><b>Catch Errors</b><br />
+<li><a id="1-0-11-1"></a><b>Catch Errors</b><br />
 <div class="org-src-container">
 
 <pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">condition-case</span> err
@@ -430,8 +443,8 @@ Hooks allow you to run code when certain events occur.
 </li>
 </ol>
 </section>
-<section id="slide-1-0-11">
-<h4 id="1-0-11"><span class="section-number-4">1.0.11.</span> <b>9. Example: Simple Calculator</b></h4>
+<section id="slide-1-0-12">
+<h4 id="1-0-12"><span class="section-number-4">1.0.12.</span> <b>9. Example: Simple Calculator</b></h4>
 <div class="org-src-container">
 
 <pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">simple-calculator</span> <span style="color: #c678dd;">()</span>
@@ -448,9 +461,10 @@ Hooks allow you to run code when certain events occur.
               <span style="color: #51afef;">(</span><span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">=</span> op ?/<span style="color: #c678dd;">)</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">/</span> x y<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
               <span style="color: #51afef;">(</span>t <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">error</span> <span style="color: #98be65;">"Invalid operator"</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span><span style="color: #a9a1e1;">)</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
 
-<span style="color: #51afef;">(</span>simple-calculator<span style="color: #51afef;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Run the calculator</span>
+<span style="color: #51afef;">(</span><span style="color: #c678dd;">simple-calculator</span><span style="color: #51afef;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Run the calculator</span>
 </pre>
 </div>
+
 <ul>
 <li><code>interactive</code> makes the function callable with <code>M-x</code>.</li>
 <li><code>let</code> binds local variables.</li>
@@ -462,8 +476,8 @@ Hooks allow you to run code when certain events occur.
 &#x2014;
 </p>
 </section>
-<section id="slide-1-0-12">
-<h4 id="1-0-12"><span class="section-number-4">1.0.12.</span> <b>10. Example: Count Words</b></h4>
+<section id="slide-1-0-13">
+<h4 id="1-0-13"><span class="section-number-4">1.0.13.</span> <b>10. Example: Count Words</b></h4>
 <div class="org-src-container">
 
 <pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">count-words</span> <span style="color: #c678dd;">()</span>
@@ -471,7 +485,7 @@ Hooks allow you to run code when certain events occur.
   <span style="color: #c678dd;">(</span><span style="color: #51afef;">interactive</span><span style="color: #c678dd;">)</span>
   <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">message</span> <span style="color: #98be65;">"Word count: %d"</span> <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">count-words-region</span> <span style="color: #a9a1e1;">(</span><span style="color: #a9a1e1;">point-min</span><span style="color: #a9a1e1;">)</span> <span style="color: #a9a1e1;">(</span><span style="color: #a9a1e1;">point-max</span><span style="color: #a9a1e1;">)</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
 
-<span style="color: #51afef;">(</span><span style="color: #a9a1e1;">count-words</span><span style="color: #51afef;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Run the word counter</span>
+<span style="color: #51afef;">(</span><span style="color: #c678dd;">count-words</span><span style="color: #51afef;">)</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Run the word counter</span>
 </pre>
 </div>
 <ul>
@@ -480,18 +494,9 @@ Hooks allow you to run code when certain events occur.
 </ul>
 
 <p>
-&#x2014;
-</p>
-
-<p>
 This tutorial covers the basics of Emacs Lisp. Experiment with these examples and explore the Emacs Lisp manual (<code>C-h i m elisp</code>) for more advanced topics!
+asdf
 </p>
-
-<p>
-<b>*</b>
-</p>
-
-
 <p>
 *
 Please write proper elisp code for a function taking one argument, the name of a file to create.
@@ -568,8 +573,8 @@ Yes, you can integrate Emacs packages into your web app by running Emacs in serv
 This setup allows you to leverage Emacs packages (e.g., Org-mode, Magit) in your web app while keeping Emacs running as a service.
 </p>
 </section>
-<section id="slide-1-0-13">
-<h4 id="1-0-13"><span class="section-number-4">1.0.13.</span> I don&rsquo;t understand. give me a simple example, I want to have an idea of how it could look like</h4>
+<section id="slide-1-0-14">
+<h4 id="1-0-14"><span class="section-number-4">1.0.14.</span> I don&rsquo;t understand. give me a simple example, I want to have an idea of how it could look like</h4>
 <p>
 Sure! Here&rsquo;s a simple example of how you might use Emacs to write and run a Python script:
 </p>
@@ -619,8 +624,8 @@ In Doom Emacs:
 The key difference is that <code>evil-yank</code> uses Vim registers, while <code>copy-region-as-kill</code> uses the Emacs kill ring. They are not directly interchangeable.
 </p>
 </section>
-<section id="slide-1-0-14">
-<h4 id="1-0-14"><span class="section-number-4">1.0.14.</span> what are vim registers?</h4>
+<section id="slide-1-0-15">
+<h4 id="1-0-15"><span class="section-number-4">1.0.15.</span> what are vim registers?</h4>
 <p>
 Vim registers are storage locations for text, similar to clipboards. In Vim (and Evil mode in Emacs), you can use registers to save and retrieve text. Here&rsquo;s a quick overview:
 </p>
@@ -750,8 +755,8 @@ The error indicates that the <code>racket</code> command is not installed or not
 If installed correctly, the code block should execute without errors.
 </p>
 </section>
-<section id="slide-1-0-15">
-<h4 id="1-0-15"><span class="section-number-4">1.0.15.</span> #+RESULTS:</h4>
+<section id="slide-1-0-16">
+<h4 id="1-0-16"><span class="section-number-4">1.0.16.</span> #+RESULTS:</h4>
 <p>
 this is a good video about coding. great.
 thank you for sharing.
@@ -771,8 +776,9 @@ To switch your input language in Doom Emacs, you can use the <code>set-input-met
 <li>Choose your desired input method (e.g., <code>chinese-py</code>, <code>japanese</code>, etc.).</li>
 
 </ol>
-
 <p>
+你是来子那里的朋有 .
+情你来子国的朋有s
 To make this easier, you can bind a key to toggle input methods. Add this to your <code>config.el</code>:
 </p>
 
@@ -786,26 +792,6 @@ To make this easier, you can bind a key to toggle input methods. Add this to you
 Now, pressing <code>C-\</code> (Ctrl + \) will toggle your input method.
 </p>
 
-<p>
-<b>*</b>
-他是来子那里的朋有?
-自从我们认识他一直没有给我回信。 到底是怎么回事儿？他是来子那里的朋有 ?
-我人是你 他是来子哪里的朋有?
-我
- :i嗯
-of course.
-他是来子发国的朋有
-</p>
-<hr />
-<div class="org-src-container">
-
-<pre class="src src-racket">
-</pre>
-</div>
-
-<p>
-write me some code block in sicp racket
-</p>
 
 
 <p>
@@ -1774,6 +1760,74 @@ Output:
 
 <p>
 If you&rsquo;re studying compilers, the explicate control pass is a key step in understanding how high-level constructs are transformed into a form suitable for further compilation.
+</p>
+</section>
+<section id="slide-4-5-1">
+<h4 id="4-5-1"><span class="section-number-4">4.5.1.</span> have you heard about the explicate control pass?</h4>
+<p>
+Yes, I have heard of the explicate control pass. It&rsquo;s an important phase in compilers that transforms high-level, nested expressions into simpler, imperative-style instructions.
+Give me examples. thank you
+</p>
+
+<p>
+Okay, here&rsquo;s an example of how the explicate control pass transforms code:
+</p>
+
+<p>
+<b>Input (High-Level Code):</b>
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span style="color: #51afef;">(</span><span style="color: #51afef;">let</span> <span style="color: #c678dd;">(</span><span style="color: #98be65;">(</span>x <span style="color: #a9a1e1;">(</span>+ a b<span style="color: #a9a1e1;">)</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">if</span> <span style="color: #98be65;">(</span>&gt; x <span style="color: #da8548; font-weight: bold;">0</span><span style="color: #98be65;">)</span>
+      <span style="color: #98be65;">(</span>* x <span style="color: #da8548; font-weight: bold;">2</span><span style="color: #98be65;">)</span>
+      <span style="color: #98be65;">(</span>/ x <span style="color: #da8548; font-weight: bold;">2</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+<p>
+<b>Output (After Explicate Control):</b>
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span style="color: #51afef;">(</span><span style="color: #51afef;">begin</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">set!</span> temp1 <span style="color: #98be65;">(</span>+ a b<span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span>  <span style="color: #5B6268;">; </span><span style="color: #5B6268;">Compute (+ a b) and store in temp1</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">set!</span> x temp1<span style="color: #c678dd;">)</span>        <span style="color: #5B6268;">; </span><span style="color: #5B6268;">Assign temp1 to x</span>
+
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">if</span> <span style="color: #98be65;">(</span>&gt; x <span style="color: #da8548; font-weight: bold;">0</span><span style="color: #98be65;">)</span>
+      <span style="color: #98be65;">(</span><span style="color: #51afef;">begin</span>            <span style="color: #5B6268;">; </span><span style="color: #5B6268;">Then branch</span>
+        <span style="color: #a9a1e1;">(</span><span style="color: #51afef;">set!</span> temp2 <span style="color: #51afef;">(</span>* x <span style="color: #da8548; font-weight: bold;">2</span><span style="color: #51afef;">)</span><span style="color: #a9a1e1;">)</span>
+        <span style="color: #a9a1e1;">(</span><span style="color: #51afef;">set!</span> result temp2<span style="color: #a9a1e1;">)</span><span style="color: #98be65;">)</span>
+      <span style="color: #98be65;">(</span><span style="color: #51afef;">begin</span>            <span style="color: #5B6268;">; </span><span style="color: #5B6268;">Else branch</span>
+        <span style="color: #a9a1e1;">(</span><span style="color: #51afef;">set!</span> temp3 <span style="color: #51afef;">(</span>/ x <span style="color: #da8548; font-weight: bold;">2</span><span style="color: #51afef;">)</span><span style="color: #a9a1e1;">)</span>
+        <span style="color: #a9a1e1;">(</span><span style="color: #51afef;">set!</span> result temp3<span style="color: #a9a1e1;">)</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span>
+
+  result                <span style="color: #5B6268;">; </span><span style="color: #5B6268;">The final result</span>
+<span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+<p>
+<b>Explanation:</b>
+</p>
+
+<ol>
+<li><b>Temporary Variables:</b> The <code>explicate control</code> pass introduces temporary variables (<code>temp1</code>, <code>temp2</code>, <code>temp3</code>, <code>result</code>) to store intermediate results.</li>
+<li><b>Sequential Execution:</b> Nested expressions like <code>(+ a b)</code> and <code>(* x 2)</code> are broken down into sequential steps using <code>set!</code>.</li>
+<li><b>Explicit Control Flow:</b> The <code>if</code> expression is transformed into a sequence of instructions where the condition <code>(&gt; x 0)</code> is evaluated, and then either the &ldquo;then&rdquo; or &ldquo;else&rdquo; branch is executed.</li>
+<li><b><code>begin</code> Blocks:</b> The <code>begin</code> keyword groups a sequence of expressions to be executed in order.</li>
+
+</ol>
+
+<p>
+This transformed code is now more suitable for translation into lower-level representations like assembly language or machine code because it has a more linear and imperative structure. The explication process has made the control flow explicit and easy to follow.
+</p>
+
+
+<p>
+<b>*</b>
 </p>
 
 <p>
@@ -3120,6 +3174,85 @@ Here’s a concise summary of the <b>xLSTM paper</b> (<b>&ldquo;Resurrecting Rec
 <p>
 未来趋势可能是*混合架构*（如xLSTM处理底层时序特征 + Transformer高层语义整合），而非完全替代。
 </p>
+</section>
+</section>
+<section>
+<section id="slide-20">
+<h2 id="20"><span class="section-number-2">20.</span> I am workin with emacs magit. can I create a local folder, git version it, and then push it to github repo that does not exist yet, thus creating this repo?</h2>
+</section>
+</section>
+<section>
+<section id="slide-21">
+<h2 id="21"><span class="section-number-2">21.</span> what should I do?</h2>
+<p>
+Unmerged into origin/main (2)
+dee3fc0 main Squashed commit of the following:
+5cfc586 1225
+</p>
+
+<p>
+Unpulled from origin/main (1)
+9883b1e origin/main aded gptel stuff
+</p>
+
+<p>
+It looks like your local branch has diverged from <code>origin/main</code>. Here&rsquo;s a breakdown and some options:
+</p>
+
+<ul>
+<li><b>&ldquo;Unmerged into origin/main (2)&rdquo;</b>: You have 2 commits locally that haven&rsquo;t been pushed to <code>origin/main</code>.</li>
+<li><b>&ldquo;Unpulled from origin/main (1)&rdquo;</b>: <code>origin/main</code> has one commit you don&rsquo;t have locally.</li>
+
+</ul>
+
+<p>
+Here&rsquo;s what you should do:
+</p>
+
+<ol>
+<li><b><code>git pull origin main</code></b>: This will fetch and merge the changes from <code>origin/main</code> into your local branch. Resolve any conflicts that arise.</li>
+<li><b><code>git push origin main</code></b>:  This will push your local commits (including the merged changes) to <code>origin/main</code>.</li>
+
+</ol>
+
+<p>
+If you want to avoid merge commits, you can use:
+</p>
+
+<ol>
+<li><b><code>git pull --rebase origin main</code></b>: This will rebase your local commits on top of the latest <code>origin/main</code>.  This rewrites history and can be more complex if others are working on the same branch.</li>
+<li><b><code>git push origin main</code></b>: This will push your rebased commits.</li>
+
+</ol>
+
+<p>
+Choose the method that best fits your workflow. If you&rsquo;re unsure, <code>git pull origin main</code> is generally the safest.
+</p>
+
+
+<p>
+<b>*</b>
+what is the flag I should use in order to answer &ldquo;yes&rdquo; to prompt. I want to &ldquo;rm -r elephant/&rdquo; but I do not want to have to confirm my decision multiple time. you understand my problem?
+</p>
+
+<p>
+Yes, I understand.  You want to avoid the prompts when using <code>rm -r</code>.
+</p>
+
+<p>
+Use the <code>-f</code> flag (force):
+</p>
+
+<p>
+<code>rm -rf elephant/</code>
+</p>
+
+<p>
+This will recursively remove the <code>elephant/</code> directory and its contents without prompting for confirmation.  Be careful!
+</p>
+</section>
+<section id="slide-21-0-1">
+<h4 id="21-0-1"><span class="section-number-4">21.0.1.</span> another title</h4>
 </section>
 </section>
 </div>
